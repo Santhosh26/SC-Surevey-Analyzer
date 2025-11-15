@@ -1,0 +1,474 @@
+================================================================================
+PRESALES SURVEY - AUTOMATED INSIGHT REPORT
+================================================================================
+Generated: 2025-11-15 22:45:09
+Total Responses Analyzed: 1415
+Total Questions: 12
+================================================================================
+
+================================================================================
+Q1: Team Culture
+================================================================================
+Full Question: How would you describe  the team culture in International Presales?
+Total Responses: 133
+Unique Responses: 61
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. collaborative             -  29 mentions ( 21.8%)
+   2. supportive                -  18 mentions ( 13.5%)
+   3. innovative                -   8 mentions (  6.0%)
+   4. teamwork                  -   6 mentions (  4.5%)
+   5. diverse                   -   4 mentions (  3.0%)
+   6. collaboration             -   4 mentions (  3.0%)
+   7. awesome                   -   3 mentions (  2.3%)
+   8. resilient                 -   3 mentions (  2.3%)
+   9. positive                  -   3 mentions (  2.3%)
+  10. rockstars                 -   2 mentions (  1.5%)
+  11. challenging               -   2 mentions (  1.5%)
+  12. team_work                 -   2 mentions (  1.5%)
+  13. humble                    -   2 mentions (  1.5%)
+  14. collabrative              -   2 mentions (  1.5%)
+  15. creative                  -   2 mentions (  1.5%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Innovative"
+  2. "Collaborative"
+  3. "Collaborative"
+  4. "Supportive"
+  5. "Collaborative"
+
+================================================================================
+Q2: Future Mission
+================================================================================
+Full Question: The Future Mission: Looking 2 years ahead, what do you believe will be the primary mission or purpose of the Presales role?
+Total Responses: 109
+Unique Responses: 102
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. advisor                   -  20 mentions ( 18.3%)
+   2. trusted                   -  11 mentions ( 10.1%)
+   3. value                     -   9 mentions (  8.3%)
+   4. sales                     -   9 mentions (  8.3%)
+   5. business                  -   8 mentions (  7.3%)
+   6. customer                  -   7 mentions (  6.4%)
+   7. first                     -   6 mentions (  5.5%)
+   8. solutions                 -   5 mentions (  4.6%)
+   9. support                   -   5 mentions (  4.6%)
+  10. solution                  -   5 mentions (  4.6%)
+  11. leader                    -   4 mentions (  3.7%)
+  12. success                   -   4 mentions (  3.7%)
+  13. drive                     -   4 mentions (  3.7%)
+  14. data                      -   3 mentions (  2.8%)
+  15. selling                   -   3 mentions (  2.8%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "AI PROMPT HERO"
+  2. "intelligent advisor"
+  3. "transform process to AI enabled"
+  4. "OSM Hero"
+  5. "feeding data to the AI"
+
+================================================================================
+Q3: Future Skills
+================================================================================
+Full Question: What do you believe are additional skillsets that will be important for Presales in the future? 
+Total Responses: 118
+Unique Responses: 74
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. adaptability              -  10 mentions (  8.5%)
+   2. communication             -   7 mentions (  5.9%)
+   3. storytelling              -   3 mentions (  2.5%)
+   4. enterprise_architecture   -   3 mentions (  2.5%)
+   5. empathy                   -   3 mentions (  2.5%)
+   6. innovation                -   2 mentions (  1.7%)
+   7. continuous_learning       -   2 mentions (  1.7%)
+   8. trusted                   -   2 mentions (  1.7%)
+   9. advisor                   -   2 mentions (  1.7%)
+  10. patience                  -   1 mentions (  0.8%)
+  11. ai_capabilities           -   1 mentions (  0.8%)
+  12. security_and_ai           -   1 mentions (  0.8%)
+  13. ai_architecture           -   1 mentions (  0.8%)
+  14. sales_engineering         -   1 mentions (  0.8%)
+  15. ai_skillsey               -   1 mentions (  0.8%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "AI"
+  2. "Ai"
+  3. "Patience"
+  4. "AI"
+  5. "AI"
+
+================================================================================
+Q4: AI Use Cases
+================================================================================
+Full Question: How would you use AI to be more efficient in your role?
+Total Responses: 115
+Unique Responses: 110
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. customer                  -   9 mentions (  7.8%)
+   2. automate                  -   8 mentions (  7.0%)
+   3. demo                      -   8 mentions (  7.0%)
+   4. knowledge                 -   8 mentions (  7.0%)
+   5. information               -   7 mentions (  6.1%)
+   6. tasks                     -   7 mentions (  6.1%)
+   7. rfp                       -   7 mentions (  6.1%)
+   8. industry                  -   7 mentions (  6.1%)
+   9. competitive               -   7 mentions (  6.1%)
+  10. research                  -   6 mentions (  5.2%)
+  11. create                    -   5 mentions (  4.3%)
+  12. specific                  -   5 mentions (  4.3%)
+  13. response                  -   4 mentions (  3.5%)
+  14. analysis                  -   4 mentions (  3.5%)
+  15. agents                    -   4 mentions (  3.5%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Finding information"
+  2. "Automate trivial tasks"
+  3. "Compare RFP"
+  4. "Building ppt slide content and associated imagery"
+  5. "Discovery and Research"
+
+================================================================================
+Q5: AI Tools Current
+================================================================================
+Full Question: What AI Tools do you currently use to help you in your role?
+Total Responses: 175
+Unique Responses: 79
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. chatgpt                   -  35 mentions ( 20.0%)
+   2. copilot                   -  26 mentions ( 14.9%)
+   3. aviator                   -  15 mentions (  8.6%)
+   4. gemini                    -  14 mentions (  8.0%)
+   5. claude                    -   5 mentions (  2.9%)
+   6. grok                      -   4 mentions (  2.3%)
+   7. napkin                    -   4 mentions (  2.3%)
+   8. chat_gpt                  -   3 mentions (  1.7%)
+   9. ollie_ai                  -   3 mentions (  1.7%)
+  10. ollieai                   -   3 mentions (  1.7%)
+  11. deepseek                  -   3 mentions (  1.7%)
+  12. perplexity                -   3 mentions (  1.7%)
+  13. gamma                     -   3 mentions (  1.7%)
+  14. my_aviator                -   2 mentions (  1.1%)
+  15. cursor                    -   1 mentions (  0.6%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Copilot"
+  2. "ChatGPT"
+  3. "Chat_gpt"
+  4. "Copilot"
+  5. "Copilot"
+
+================================================================================
+Q6: Buyer Experience
+================================================================================
+Full Question: The Buyer's Experience: Our customers are more informed  than ever. How should our team evolve the way we demonstrate value to our customers? 
+Total Responses: 106
+Unique Responses: 101
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. customer                  -  24 mentions ( 22.6%)
+   2. business                  -  12 mentions ( 11.3%)
+   3. cases                     -  11 mentions ( 10.4%)
+   4. value                     -  10 mentions (  9.4%)
+   5. industry                  -  10 mentions (  9.4%)
+   6. demo                      -   8 mentions (  7.5%)
+   7. their                     -   8 mentions (  7.5%)
+   8. storytelling              -   6 mentions (  5.7%)
+   9. understand                -   6 mentions (  5.7%)
+  10. understanding             -   6 mentions (  5.7%)
+  11. real                      -   6 mentions (  5.7%)
+  12. needs                     -   6 mentions (  5.7%)
+  13. story                     -   5 mentions (  4.7%)
+  14. what                      -   4 mentions (  3.8%)
+  15. outcome                   -   4 mentions (  3.8%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Customer Story"
+  2. "Targeted use cases"
+  3. "Quantify Business Impact"
+  4. "We should be even more informed on what’s out there"
+  5. "AI"
+
+================================================================================
+Q7: Success Outcomes
+================================================================================
+Full Question: What key outcomes should define success for Presales of the future, beyond technical wins and closed deals?
+Total Responses: 82
+Unique Responses: 78
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. customer                  -  35 mentions ( 42.7%)
+   2. sales                     -  10 mentions ( 12.2%)
+   3. trusted                   -   9 mentions ( 11.0%)
+   4. trust                     -   8 mentions (  9.8%)
+   5. advisor                   -   6 mentions (  7.3%)
+   6. innovation                -   5 mentions (  6.1%)
+   7. win                       -   4 mentions (  4.9%)
+   8. relationship              -   4 mentions (  4.9%)
+   9. between                   -   4 mentions (  4.9%)
+  10. solution                  -   3 mentions (  3.7%)
+  11. value                     -   3 mentions (  3.7%)
+  12. good                      -   2 mentions (  2.4%)
+  13. technical                 -   2 mentions (  2.4%)
+  14. business                  -   2 mentions (  2.4%)
+  15. skills                    -   2 mentions (  2.4%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Good shape"
+  2. "Technical win"
+  3. "Customer Trust and Advocacy"
+  4. "Understanding customer business and pain areas"
+  5. "Being a trusted consultant"
+
+================================================================================
+Q8: Team Relationships
+================================================================================
+Full Question: How should our team's relationship with Product Management , Marketing, Professional Services and Customer Success evolve?
+Total Responses: 106
+Unique Responses: 103
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. customer                  -  16 mentions ( 15.1%)
+   2. collaboration             -  14 mentions ( 13.2%)
+   3. feedback                  -   9 mentions (  8.5%)
+   4. regular                   -   9 mentions (  8.5%)
+   5. closer                    -   7 mentions (  6.6%)
+   6. from                      -   7 mentions (  6.6%)
+   7. team                      -   7 mentions (  6.6%)
+   8. engagement                -   6 mentions (  5.7%)
+   9. communication             -   6 mentions (  5.7%)
+  10. face                      -   5 mentions (  4.7%)
+  11. product                   -   5 mentions (  4.7%)
+  12. work                      -   5 mentions (  4.7%)
+  13. management                -   4 mentions (  3.8%)
+  14. alignment                 -   4 mentions (  3.8%)
+  15. success                   -   4 mentions (  3.8%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Closer and more engaged"
+  2. "Collaboration"
+  3. "Face to face engagement"
+  4. "reactive feedback to proactive collaboration"
+  5. "Close engagements"
+
+================================================================================
+Q9: Human Value
+================================================================================
+Full Question: As routine tasks get automated, what becomes the most important, uniquely human value that Presales delivers?
+Total Responses: 105
+Unique Responses: 85
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. trust                     -  22 mentions ( 21.0%)
+   2. relationship              -  14 mentions ( 13.3%)
+   3. customer                  -  11 mentions ( 10.5%)
+   4. connection                -  10 mentions (  9.5%)
+   5. human                     -   8 mentions (  7.6%)
+   6. empathy                   -   8 mentions (  7.6%)
+   7. face                      -   5 mentions (  4.8%)
+   8. from                      -   4 mentions (  3.8%)
+   9. understanding             -   4 mentions (  3.8%)
+  10. customers                 -   4 mentions (  3.8%)
+  11. people                    -   4 mentions (  3.8%)
+  12. help                      -   4 mentions (  3.8%)
+  13. trusted                   -   3 mentions (  2.9%)
+  14. personal                  -   3 mentions (  2.9%)
+  15. needs                     -   3 mentions (  2.9%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Trust"
+  2. "Connection"
+  3. "TRusted advisor"
+  4. "Human by from human"
+  5. "provide a personal connection"
+
+================================================================================
+Q10: Challenges
+================================================================================
+Full Question: What are your biggest challenges and internal bottlenecks today? 
+Total Responses: 84
+Unique Responses: 67
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. enablement                -  16 mentions ( 19.0%)
+   2. too_many_products         -   2 mentions (  2.4%)
+   3. resources                 -   2 mentions (  2.4%)
+   4. top_level_decision_making -   1 mentions (  1.2%)
+   5. incompetent_aes           -   1 mentions (  1.2%)
+   6. aes                       -   1 mentions (  1.2%)
+   7. missing_product_features  -   1 mentions (  1.2%)
+   8. finding_information       -   1 mentions (  1.2%)
+   9. lack_of_growth            -   1 mentions (  1.2%)
+  10. time_zones                -   1 mentions (  1.2%)
+  11. services_being_up_to_date -   1 mentions (  1.2%)
+  12. unavailability_of_gpus    -   1 mentions (  1.2%)
+  13. product_management_respon -   1 mentions (  1.2%)
+  14. demo_environmemt          -   1 mentions (  1.2%)
+  15. tech_marketing            -   1 mentions (  1.2%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Enablement"
+  2. "Top_level_decision_making"
+  3. "Incompetent_AEs"
+  4. "AEs"
+  5. "Missing_product_features"
+
+================================================================================
+Q11: Stop Doing
+================================================================================
+Full Question: What should we stop doing  today?
+Total Responses: 147
+Unique Responses: 111
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. poc                       -  24 mentions ( 16.3%)
+   2. spoon_feeding_ae          -  11 mentions (  7.5%)
+   3. complaining               -   7 mentions (  4.8%)
+   4. complain                  -   3 mentions (  2.0%)
+   5. pipeline_generation       -   2 mentions (  1.4%)
+   6. pitch_products            -   1 mentions (  0.7%)
+   7. pocs                      -   1 mentions (  0.7%)
+   8. work_on_unqualified_stuff -   1 mentions (  0.7%)
+   9. discovery_meeting         -   1 mentions (  0.7%)
+  10. to_do_aes_work            -   1 mentions (  0.7%)
+  11. discovery                 -   1 mentions (  0.7%)
+  12. do_other_people_task      -   1 mentions (  0.7%)
+  13. fill_gis_questionnaire    -   1 mentions (  0.7%)
+  14. just_working              -   1 mentions (  0.7%)
+  15. so_many_meetings          -   1 mentions (  0.7%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Complaining"
+  2. "POC"
+  3. "pitch_products"
+  4. "complain"
+  5. "POCs"
+
+================================================================================
+Q12: Start Doing
+================================================================================
+Full Question: What should we start doing differently tomorrow?
+Total Responses: 135
+Unique Responses: 107
+
+TOP 15 THEMES (by frequency):
+--------------------------------------------------------------------------------
+   1. enhance_products          -  12 mentions (  8.9%)
+   2. share_knowledge           -  10 mentions (  7.4%)
+   3. enablement                -  10 mentions (  7.4%)
+   4. sharing_knowledge         -   2 mentions (  1.5%)
+   5. stop_spoon_feeding_ae     -   1 mentions (  0.7%)
+   6. more_ai                   -   1 mentions (  0.7%)
+   7. standardize_processes     -   1 mentions (  0.7%)
+   8. face_to_face_kick_off     -   1 mentions (  0.7%)
+   9. collaboration             -   1 mentions (  0.7%)
+  10. better_rewards_recogniti  -   1 mentions (  0.7%)
+  11. work_life_balance         -   1 mentions (  0.7%)
+  12. product_innovation        -   1 mentions (  0.7%)
+  13. be_more_innovative        -   1 mentions (  0.7%)
+  14. focus_only_our_work       -   1 mentions (  0.7%)
+  15. pitch_solutions           -   1 mentions (  0.7%)
+
+SAMPLE RESPONSES:
+--------------------------------------------------------------------------------
+  1. "Stop_spoon_feeding_ae"
+  2. "Share_knowledge"
+  3. "More_AI"
+  4. "Standardize_processes"
+  5. "Face_to_face_kick_off"
+
+================================================================================
+CROSS-QUESTION INSIGHTS
+================================================================================
+
+[AI ADOPTION GAP ANALYSIS]
+--------------------------------------------------------------------------------
+Desired AI Use Cases: 115 responses
+Current AI Tools: 175 responses
+
+Top Desired Use Cases:
+  - customer: 9 mentions
+  - automate: 8 mentions
+  - demo: 8 mentions
+  - knowledge: 8 mentions
+  - information: 7 mentions
+
+Top Current Tools:
+  - chatgpt: 35 mentions
+  - copilot: 26 mentions
+  - aviator: 15 mentions
+  - gemini: 14 mentions
+  - claude: 5 mentions
+
+[QUICK WINS ANALYSIS - High Frequency Items]
+--------------------------------------------------------------------------------
+
+STOP DOING (Top Pain Points):
+  - poc: 24 mentions (16.3%) - PRIORITY
+  - spoon_feeding_ae: 11 mentions (7.5%) - PRIORITY
+
+START DOING (Top Initiatives):
+  - enhance_products: 12 mentions (8.9%) - PRIORITY
+  - share_knowledge: 10 mentions (7.4%) - PRIORITY
+  - enablement: 10 mentions (7.4%) - PRIORITY
+
+[STRATEGIC TENSIONS & PATTERNS]
+--------------------------------------------------------------------------------
+
+Vision vs Reality Gap:
+  Future Mission (Top themes): advisor, trusted, value, sales, business
+  Current Challenges (Top themes): enablement, too_many_products, resources, top_level_decision_making, incompetent_aes
+  >> Insight: Compare aspirational mission with operational reality
+
+================================================================================
+EXECUTIVE SUMMARY - KEY TAKEAWAYS
+================================================================================
+
+1. IMMEDIATE ACTIONS (0-30 days):
+   Based on 282 responses
+   - Top pain point to eliminate: poc (24 mentions)
+   - Top initiative to launch: enhance_products (12 mentions)
+
+2. AI CAPABILITY GAP:
+   - 115 responses on desired AI use
+   - 175 responses on current tools
+   - Top opportunity: customer (high demand, check adoption)
+
+3. TEAM CULTURE:
+   - Dominant theme: collaborative (29 mentions)
+   - 133 responses indicate team sentiment
+
+================================================================================
+END OF REPORT
+================================================================================
+
+Next Steps:
+1. Review high-frequency items (>5% mention rate) for quick wins
+2. Use web app (streamlit run app.py) for visual exploration
+3. Export key charts for executive presentation
+4. Cross-reference this report with Executive_Summary_Template.md

@@ -65,9 +65,24 @@ def load_data():
     """Load and parse raw survey data"""
     try:
         df = pd.read_csv('raw-data.csv', encoding='utf-8-sig')
-        df.columns = ['Question', 'Response']
+        df.columns = df.columns.str.strip()  # Clean column names
+
+        # Handle different possible column names
+        if 'Responses' in df.columns:
+            df = df.rename(columns={'Responses': 'Response'})
+
         df['Response'] = df['Response'].astype(str).str.strip()
-        df = df[df['Response'].notna() & (df['Response'] != '')]
+        df['Question'] = df['Question'].astype(str).str.strip()
+
+        # Filter out invalid data
+        df = df[df['Response'].notna() & (df['Response'] != '') & (df['Response'] != 'nan')]
+        df = df[df['Question'].notna() & (df['Question'] != '') & (df['Question'] != 'nan')]
+
+        # Filter questions with at least 10 responses (removes metadata rows)
+        question_counts = df['Question'].value_counts()
+        valid_questions = question_counts[question_counts >= 10].index
+        df = df[df['Question'].isin(valid_questions)]
+
         return df
     except Exception as e:
         st.error(f"Error loading data: {e}")
