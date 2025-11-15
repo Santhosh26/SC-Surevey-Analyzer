@@ -19,6 +19,13 @@ This is a **Presales Survey Analysis Toolkit** designed to transform 100+ survey
 - **`Thematic_Coding_Framework.md`** - 8-phase systematic analysis methodology for open-ended responses
 - **`Quick_Wins_Guide.md`** - 7-phase extraction process for immediate action items (0-30 days)
 - **`Executive_Summary_Template.md`** - Structured reporting template for leadership presentation
+- **`README_WEB_APP.md`** - Web app setup and usage guide
+
+### Web Application
+- **`app.py`** - Streamlit interactive dashboard for data visualization and analysis
+- **`requirements.txt`** - Python dependencies for the web app
+- **`run_app.bat`** - Windows batch script to launch the dashboard
+- **`venv/`** - Python virtual environment (not in git)
 
 ## Survey Question Structure
 
