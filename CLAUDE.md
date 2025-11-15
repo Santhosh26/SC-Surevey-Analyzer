@@ -72,6 +72,65 @@ The survey contains 14 questions covering:
 3. Launch first quick wins
 4. Present to leadership
 
+## Web App - Interactive Dashboard
+
+### Quick Start
+```bash
+# Windows
+run_app.bat
+
+# Or manually
+venv\Scripts\activate
+streamlit run app.py
+```
+
+The app opens at `http://localhost:8501` with five analysis views:
+
+### Dashboard Features
+
+**1. Overview (📈)**
+- Total response metrics and distribution
+- Response counts per question
+- Summary statistics table
+
+**2. Question Deep Dive (❓)**
+- Interactive word clouds
+- Top word frequency analysis
+- Bar charts of word distribution
+- Random sample responses for qualitative review
+
+**3. Sentiment Analysis (💭)**
+- Automatic sentiment classification (Positive/Neutral/Negative) using TextBlob
+- Sentiment distribution pie charts
+- Most positive and negative response highlights with polarity scores
+
+**4. Quick Wins Analysis (🎯)**
+- Dedicated view for "Stop Doing" and "Start Doing" questions
+- Side-by-side word clouds
+- Top pain points and initiatives ranked by frequency
+- Impact × Effort matrix framework for prioritization
+
+**5. Cross-Question Correlation (📊)**
+- Compare any two questions side-by-side
+- Identify common themes across questions
+- Spot gaps between aspiration vs reality
+
+### Export Capabilities
+- Right-click any Plotly chart → "Download plot as PNG"
+- Word clouds: Right-click → "Save image as..."
+- Use exported charts directly in PowerPoint presentations
+
+### Deployment Options
+- **Local:** Run during presentation (recommended for quick delivery)
+- **Streamlit Cloud:** Free public hosting at share.streamlit.io
+- **Docker:** Internal hosting (see README_WEB_APP.md)
+
+### When to Use Web App vs Excel
+- **Web App:** Fast exploration, generating charts for presentations, sentiment analysis, cross-question comparisons
+- **Excel:** Manual thematic coding, detailed frequency calculations, storing coded responses, formula-based analysis
+
+The web app complements the Excel workbook - use the app for visualization and the workbook for coding.
+
 ## Key Methodological Principles
 
 ### Thematic Coding Best Practices
