@@ -12,6 +12,38 @@ import matplotlib.pyplot as plt
 from collections import Counter
 import re
 
+# ==================== COLOR SCHEME CONFIGURATION ====================
+# Google Maps-Inspired Vibrant Orange & Blue Theme
+COLOR_SCHEME = {
+    # Core Brand Colors
+    'primary_blue': '#4285F4',        # Google Maps vibrant blue
+    'primary_orange': '#FF6D00',      # Vibrant orange for highlights
+    'secondary_blue': '#1967D2',      # Deeper blue for contrast
+    'secondary_orange': '#FF8F00',    # Lighter orange for variety
+    'accent_teal': '#00BCD4',         # Complementary cool accent
+    'accent_purple': '#7B1FA2',       # For diversity in multi-series charts
+
+    # Semantic Colors (Adapted to Palette)
+    'positive': '#00C853',            # Vibrant green
+    'neutral': '#90A4AE',             # Blue-gray
+    'negative': '#FF6F00',            # Vibrant orange
+
+    # UI Elements
+    'bg_light': '#F5F7FA',            # Subtle cool gray
+    'bg_blue': '#E3F2FD',             # Light blue wash
+    'bg_orange': '#FFF3E0',           # Light orange wash
+    'text_dark': '#37474F',           # Blue-gray dark
+    'white': '#FFFFFF',
+
+    # Chart Colorscales (Plotly - will create custom)
+    'chart_main': [[0, '#E3F2FD'], [0.5, '#4285F4'], [1, '#FF6D00']],  # Blue to Orange gradient
+    'chart_blue': [[0, '#E3F2FD'], [0.5, '#4285F4'], [1, '#1967D2']],  # Light to Dark Blue
+    'chart_orange': [[0, '#FFF3E0'], [0.5, '#FF8F00'], [1, '#FF6D00']], # Light to Dark Orange
+
+    # Word Cloud Colormap (matplotlib)
+    'wordcloud_cmap': 'plasma'        # Vibrant purple-orange-yellow gradient
+}
+
 # Page configuration
 st.set_page_config(
     page_title="Presales Survey Analysis",
@@ -20,41 +52,44 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
-st.markdown("""
+# Custom CSS for better styling - Using centralized color scheme
+st.markdown(f"""
     <style>
-    .main-header {
+    .main-header {{
         font-size: 2.5rem;
         font-weight: bold;
-        color: #1f77b4;
+        color: {COLOR_SCHEME['primary_blue']};
         margin-bottom: 1rem;
-    }
-    .sub-header {
+    }}
+    .sub-header {{
         font-size: 1.5rem;
         font-weight: bold;
-        color: #2c3e50;
+        color: {COLOR_SCHEME['text_dark']};
         margin-top: 2rem;
         margin-bottom: 1rem;
-    }
-    .metric-card {
-        background-color: #f0f2f6;
+    }}
+    .metric-card {{
+        background-color: {COLOR_SCHEME['bg_light']};
         padding: 1rem;
         border-radius: 0.5rem;
         margin: 0.5rem 0;
-    }
-    .insight-box {
-        background-color: #e8f4f8;
+        color: {COLOR_SCHEME['text_dark']};
+    }}
+    .insight-box {{
+        background-color: {COLOR_SCHEME['bg_blue']};
         padding: 1rem;
-        border-left: 4px solid #1f77b4;
+        border-left: 4px solid {COLOR_SCHEME['primary_blue']};
         margin: 1rem 0;
-    }
-    .quote-box {
-        background-color: #fff9e6;
+        color: {COLOR_SCHEME['text_dark']};
+    }}
+    .quote-box {{
+        background-color: {COLOR_SCHEME['bg_orange']};
         padding: 1rem;
-        border-left: 4px solid #ffa500;
+        border-left: 4px solid {COLOR_SCHEME['primary_orange']};
         margin: 0.5rem 0;
         font-style: italic;
-    }
+        color: {COLOR_SCHEME['text_dark']};
+    }}
     </style>
     """, unsafe_allow_html=True)
 
@@ -175,8 +210,8 @@ def create_wordcloud(responses, title="Word Cloud"):
     wordcloud = WordCloud(
         width=800,
         height=400,
-        background_color='white',
-        colormap='viridis',
+        background_color=COLOR_SCHEME['white'],
+        colormap=COLOR_SCHEME['wordcloud_cmap'],
         max_words=100,
         relative_scaling=0.5,
         min_font_size=10
@@ -201,7 +236,7 @@ def create_frequency_chart(word_counts, title="Top Words"):
         orientation='h',
         marker=dict(
             color=list(counts),
-            colorscale='Blues',
+            colorscale=COLOR_SCHEME['chart_blue'],
             showscale=True
         )
     )])
@@ -234,7 +269,7 @@ def create_response_distribution(df):
         title='Number of Responses per Question',
         labels={'Short_Question': 'Question', 'Count': 'Response Count'},
         color='Count',
-        color_continuous_scale='Blues'
+        color_continuous_scale=COLOR_SCHEME['chart_blue']
     )
 
     fig.update_layout(height=600, showlegend=False)
@@ -278,12 +313,16 @@ def create_sentiment_chart(sentiment_df):
     """Create sentiment distribution chart"""
     sentiment_counts = sentiment_df['sentiment'].value_counts()
 
-    colors = {'Positive': '#2ecc71', 'Neutral': '#95a5a6', 'Negative': '#e74c3c'}
+    colors = {
+        'Positive': COLOR_SCHEME['positive'],
+        'Neutral': COLOR_SCHEME['neutral'],
+        'Negative': COLOR_SCHEME['negative']
+    }
 
     fig = go.Figure(data=[go.Pie(
         labels=sentiment_counts.index,
         values=sentiment_counts.values,
-        marker=dict(colors=[colors.get(s, '#3498db') for s in sentiment_counts.index]),
+        marker=dict(colors=[colors.get(s, COLOR_SCHEME['primary_blue']) for s in sentiment_counts.index]),
         hole=0.3
     )])
 
@@ -391,7 +430,7 @@ def main():
             textposition='outside',
             marker=dict(
                 color=roles_df['Votes'],
-                colorscale='Blues',
+                colorscale=COLOR_SCHEME['chart_blue'],
                 showscale=False
             )
         )])
@@ -448,7 +487,7 @@ def main():
             textposition='outside',
             marker=dict(
                 color=skills_df['First_Place_Votes'],
-                colorscale='Viridis',
+                colorscale=COLOR_SCHEME['chart_orange'],
                 showscale=False
             )
         )])

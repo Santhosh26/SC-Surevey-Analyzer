@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s /b \"C:\\Users\\skumar14\\my-repo\\SC-Surevey-Analyzer\")",
+      "Bash(findstr:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
