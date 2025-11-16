@@ -46,10 +46,18 @@ ENV/
 Thumbs.db
 
 # Streamlit
-.streamlit/
+# .streamlit/ - KEEP: contains config.toml for theme
 
-# Output files
+# Generated output files
 exports/
 output/
 *.pdf
 *.pptx
+INSIGHTS_REPORT_*.txt
+future_*.html
+
+# PyInstaller
+*.spec
+
+# Claude Code IDE
+.claude/

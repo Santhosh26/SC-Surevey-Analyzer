@@ -1,19 +1,51 @@
 # Quick Start Guide
 
-## ⚡ 5-Minute Start
+## 🔧 First-Time Setup (One-Time Only)
+
+**Windows:**
+```bash
+Double-click: setup.bat
+```
+
+**Mac/Linux:**
+```bash
+./setup.sh
+```
+
+This takes ~5 minutes and installs all dependencies. You only need to do this once!
+
+---
+
+## ⚡ 5-Minute Start (After Setup)
 
 ### Option 1: Just the Insights
+
+**Windows:**
 ```bash
 Double-click: 1_GENERATE_REPORT.bat
 ```
+
+**Mac/Linux:**
+```bash
+./1_generate_report.sh
+```
+
 - Generates `INSIGHTS_REPORT_LATEST.txt` (5 seconds)
 - Opens automatically
 - Contains all analysis: themes, frequencies, quick wins, executive summary
 
 ### Option 2: Visual Exploration
+
+**Windows:**
 ```bash
 Double-click: 2_LAUNCH_DASHBOARD.bat
 ```
+
+**Mac/Linux:**
+```bash
+./2_launch_dashboard.sh
+```
+
 - Opens web app at http://localhost:8501
 - 5 views: Overview, Deep Dive, Sentiment, Quick Wins, Cross-Question
 - Export charts for presentations
@@ -77,9 +109,23 @@ Search the report for:
 
 ## 🚨 Common Issues
 
+**Haven't run setup yet?**
+
+**Windows:** `setup.bat`
+**Mac/Linux:** `./setup.sh`
+
 **Web app error?**
+
+**Windows:**
 ```bash
-venv\Scripts\python.exe -m pip install -r requirements.txt
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+**Mac/Linux:**
+```bash
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 **No data?**
@@ -89,6 +135,11 @@ venv\Scripts\python.exe -m pip install -r requirements.txt
 **Charts won't export?**
 - Use right-click, not screenshots
 - Look for camera icon on hover
+
+**Permission denied (Mac/Linux)?**
+```bash
+chmod +x *.sh
+```
 
 ---
 
