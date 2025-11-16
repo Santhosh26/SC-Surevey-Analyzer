@@ -3,7 +3,8 @@
     "allow": [
       "Bash(dir /s /b \"C:\\Users\\skumar14\\my-repo\\SC-Surevey-Analyzer\")",
       "Bash(findstr:*)",
-      "Bash(python generate_insights.py:*)"
+      "Bash(python generate_insights.py:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
