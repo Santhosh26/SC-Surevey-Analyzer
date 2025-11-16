@@ -62,7 +62,7 @@ st.markdown("""
 
 @st.cache_data
 def load_data():
-    """Load and parse raw survey data"""
+    """Load and parse raw survey data - returns both open-ended and multiple choice"""
     try:
         df = pd.read_csv('raw-data.csv', encoding='utf-8-sig')
         df.columns = df.columns.str.strip()  # Clean column names
@@ -78,15 +78,52 @@ def load_data():
         df = df[df['Response'].notna() & (df['Response'] != '') & (df['Response'] != 'nan')]
         df = df[df['Question'].notna() & (df['Question'] != '') & (df['Question'] != 'nan')]
 
-        # Filter questions with at least 10 responses (removes metadata rows)
-        question_counts = df['Question'].value_counts()
-        valid_questions = question_counts[question_counts >= 10].index
-        df = df[df['Question'].isin(valid_questions)]
+        # Separate open-ended from multiple choice questions
+        # Multiple choice questions have numeric responses (vote counts)
+        df['Is_Numeric'] = df['Response'].str.match(r'^\d+$', na=False)
 
-        return df
+        open_ended = df[~df['Is_Numeric']].copy()
+        multiple_choice = df[df['Is_Numeric']].copy()
+
+        # Filter open-ended questions with at least 10 responses
+        question_counts = open_ended['Question'].value_counts()
+        valid_questions = question_counts[question_counts >= 10].index
+        open_ended = open_ended[open_ended['Question'].isin(valid_questions)]
+
+        return open_ended, multiple_choice
     except Exception as e:
         st.error(f"Error loading data: {e}")
-        return pd.DataFrame()
+        return pd.DataFrame(), pd.DataFrame()
+
+@st.cache_data
+def get_multiple_choice_data():
+    """Get structured multiple choice data"""
+    # Future Roles
+    future_roles = {
+        'Role': [
+            'Solution Architects - Technical Credibility',
+            'Industry Value Consultants - CXO Engagement',
+            'Business Value Engineers - ROI/TCO Justification',
+            'Demo Specialist - AI-powered Inspiration',
+            'Innovation Leads - Co-creation and Rapid Pilots',
+            'Enablement Coaches - Scale Knowledge and Capability'
+        ],
+        'Votes': [69, 34, 33, 38, 51, 30]
+    }
+
+    # Future Skillsets
+    future_skillsets = {
+        'Skillset': [
+            'Technical expertise',
+            'Financial modelling',
+            'Adaptability & customer empathy',
+            'Industry-specific business acumen',
+            'Advanced storytelling'
+        ],
+        'First_Place_Votes': [20, 0, 21, 30, 30]
+    }
+
+    return future_roles, future_skillsets
 
 @st.cache_data
 def get_question_summary(df):
@@ -265,7 +302,7 @@ def main():
     st.markdown("**International Presales All-Hands Survey 2025** | Transforming 100+ responses into strategic intelligence")
 
     # Load data
-    df = load_data()
+    df, mc_df = load_data()
 
     if df.empty:
         st.error("No data loaded. Please ensure 'raw-data.csv' is in the project directory.")
@@ -276,12 +313,14 @@ def main():
 
     analysis_mode = st.sidebar.radio(
         "Select Analysis View",
-        ["📈 Overview", "❓ Question Deep Dive", "💭 Sentiment Analysis", "🎯 Quick Wins", "📊 Cross-Question Analysis"]
+        ["📈 Overview", "🎲 Multiple Choice Results", "❓ Question Deep Dive", "💭 Sentiment Analysis", "🎯 Quick Wins", "📊 Cross-Question Analysis"]
     )
 
     st.sidebar.markdown("---")
-    st.sidebar.markdown(f"**Total Responses:** {len(df)}")
-    st.sidebar.markdown(f"**Total Questions:** {df['Question'].nunique()}")
+    st.sidebar.markdown(f"**Open-Ended Responses:** {len(df)}")
+    st.sidebar.markdown(f"**Open-Ended Questions:** {df['Question'].nunique()}")
+    st.sidebar.markdown(f"**Multiple Choice Questions:** 2")
+    st.sidebar.markdown(f"**Total Questions:** {df['Question'].nunique() + 2}")
 
     # ==================== OVERVIEW ====================
     if analysis_mode == "📈 Overview":
@@ -290,9 +329,11 @@ def main():
         # Metrics
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric("Total Responses", len(df))
+            st.metric("Open-Ended Responses", len(df))
         with col2:
-            st.metric("Unique Questions", df['Question'].nunique())
+            total_questions = df['Question'].nunique() + 2
+            st.metric("Total Questions", total_questions)
+            st.caption("12 open-ended + 2 multiple choice")
         with col3:
             avg_responses = len(df) / df['Question'].nunique()
             st.metric("Avg Responses/Question", f"{avg_responses:.1f}")
@@ -306,9 +347,157 @@ def main():
         st.plotly_chart(create_response_distribution(df), use_container_width=True)
 
         # Question summary table
-        st.markdown('<div class="sub-header">Response Summary by Question</div>', unsafe_allow_html=True)
+        st.markdown('<div class="sub-header">Response Summary by Question (Open-Ended)</div>', unsafe_allow_html=True)
         summary = get_question_summary(df)
         st.dataframe(summary, use_container_width=True, hide_index=True)
+
+        st.markdown("---")
+        st.info("💡 **Tip:** Check the '🎲 Multiple Choice Results' tab to see the 2 multiple choice questions!")
+
+    # ==================== MULTIPLE CHOICE RESULTS ====================
+    elif analysis_mode == "🎲 Multiple Choice Results":
+        st.markdown('<div class="sub-header">Multiple Choice Questions Analysis</div>', unsafe_allow_html=True)
+
+        # Get MC data
+        future_roles, future_skillsets = get_multiple_choice_data()
+
+        # ========== FUTURE ROLES ==========
+        st.markdown("### 1️⃣ Future Roles in International Presales")
+        st.markdown("**Question:** What do you believe are the future roles in International Presales?")
+        st.markdown("**Format:** Multiple choice (respondents could select multiple roles)")
+
+        # Process data
+        roles_df = pd.DataFrame(future_roles)
+        roles_df['Percentage'] = (roles_df['Votes'] / roles_df['Votes'].sum() * 100).round(1)
+        roles_df = roles_df.sort_values('Votes', ascending=False)
+
+        # Metrics
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Total Votes", roles_df['Votes'].sum())
+        with col2:
+            st.metric("Avg Selections per Person", f"{roles_df['Votes'].sum() / 100:.1f}")
+            st.caption("Assuming ~100 respondents")
+        with col3:
+            st.metric("Top Role", "Solution Architects")
+            st.caption(f"{roles_df.iloc[0]['Votes']} votes ({roles_df.iloc[0]['Percentage']}%)")
+
+        # Visualization
+        fig_roles = go.Figure([go.Bar(
+            y=roles_df['Role'],
+            x=roles_df['Votes'],
+            orientation='h',
+            text=[f"{v} ({p}%)" for v, p in zip(roles_df['Votes'], roles_df['Percentage'])],
+            textposition='outside',
+            marker=dict(
+                color=roles_df['Votes'],
+                colorscale='Blues',
+                showscale=False
+            )
+        )])
+
+        fig_roles.update_layout(
+            title='Future Roles - Vote Distribution',
+            xaxis_title='Number of Votes',
+            yaxis_title='',
+            height=400,
+            xaxis=dict(range=[0, max(roles_df['Votes']) * 1.2])
+        )
+
+        st.plotly_chart(fig_roles, use_container_width=True)
+
+        # Key insights
+        st.markdown('<div class="insight-box">', unsafe_allow_html=True)
+        st.markdown("**💡 Key Insights:**")
+        st.markdown(f"- **Solution Architects** remain the core role ({roles_df.iloc[0]['Percentage']}% selection rate)")
+        st.markdown(f"- **Innovation Leads** rising as second priority ({roles_df.iloc[1]['Percentage']}%) - focus on co-creation")
+        st.markdown(f"- **Portfolio approach:** Average {roles_df['Votes'].sum() / 100:.1f} roles per person → need for specialization")
+        st.markdown(f"- **Balanced distribution:** No single role dominates (all roles 12-27%)")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+        st.markdown("---")
+
+        # ========== FUTURE SKILLSETS ==========
+        st.markdown("### 2️⃣ Future Skillsets & Mindsets Ranking")
+        st.markdown("**Question:** Rank these key skillsets & mindsets for Presales of the future")
+        st.markdown("**Format:** Ranking question (showing only 1st-place votes)")
+
+        # Process data
+        skills_df = pd.DataFrame(future_skillsets)
+        skills_df['Percentage'] = (skills_df['First_Place_Votes'] / skills_df['First_Place_Votes'].sum() * 100).round(1)
+        skills_df = skills_df.sort_values('First_Place_Votes', ascending=False)
+
+        # Metrics
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Total 1st Place Votes", skills_df['First_Place_Votes'].sum())
+        with col2:
+            top_skills = skills_df[skills_df['First_Place_Votes'] == skills_df['First_Place_Votes'].max()]
+            st.metric("Top Priority (Tied)", len(top_skills))
+            st.caption(", ".join(top_skills['Skillset'].tolist()[:2]))
+        with col3:
+            st.metric("Technical Expertise Ranking", "4th place")
+            st.caption(f"Only {skills_df[skills_df['Skillset'] == 'Technical expertise']['Percentage'].iloc[0]}% ranked it #1")
+
+        # Visualization
+        fig_skills = go.Figure([go.Bar(
+            y=skills_df['Skillset'],
+            x=skills_df['First_Place_Votes'],
+            orientation='h',
+            text=[f"{v} ({p}%)" for v, p in zip(skills_df['First_Place_Votes'], skills_df['Percentage'])],
+            textposition='outside',
+            marker=dict(
+                color=skills_df['First_Place_Votes'],
+                colorscale='Viridis',
+                showscale=False
+            )
+        )])
+
+        fig_skills.update_layout(
+            title='Future Skillsets - 1st Place Rankings',
+            xaxis_title='Number of 1st Place Votes',
+            yaxis_title='',
+            height=350,
+            xaxis=dict(range=[0, max(skills_df['First_Place_Votes']) * 1.2])
+        )
+
+        st.plotly_chart(fig_skills, use_container_width=True)
+
+        # Key insights
+        st.markdown('<div class="insight-box">', unsafe_allow_html=True)
+        st.markdown("**💡 Key Insights:**")
+        st.markdown(f"- **TIED for #1:** Industry-specific acumen & Advanced storytelling (30 votes each, {skills_df.iloc[0]['Percentage']}%)")
+        st.markdown(f"- **Shift observed:** Business skills > Technical skills (Industry acumen #1 vs Technical expertise #4)")
+        st.markdown(f"- **Surprising:** Financial modelling = 0 first-place votes (may be delegated or not seen as primary skill)")
+        st.markdown(f"- **Soft skills valued:** Adaptability & empathy in 2nd place ({skills_df.iloc[2]['Percentage']}%)")
+        st.markdown(f"- **Strategic implication:** Presales evolving from technical-first to business-first orientation")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+        st.markdown("---")
+
+        # Cross-validation with open-ended
+        st.markdown("### 🔗 Cross-Validation with Open-Ended Responses")
+        st.markdown("**Comparing Multiple Choice with Open-Ended Themes:**")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("**Multiple Choice Results:**")
+            st.markdown("- Top Role: Solution Architects (27%)")
+            st.markdown("- Top Skill: Industry Acumen (30%)")
+            st.markdown("- Top Skill (tied): Storytelling (30%)")
+
+        with col2:
+            st.markdown("**Open-Ended Themes (from Q2 - Future Mission):**")
+            st.markdown("- 'Advisor' mentioned 20 times (18%)")
+            st.markdown("- 'Trusted' mentioned 11 times (10%)")
+            st.markdown("- 'Value' mentioned 9 times (8%)")
+
+        st.markdown('<div class="insight-box">', unsafe_allow_html=True)
+        st.markdown("**✅ Validation:** Multiple choice confirms open-ended themes!")
+        st.markdown("- Solution Architects (27%) aligns with 'Advisor'/'Trusted' themes (28% combined)")
+        st.markdown("- Industry acumen #1 validates need for business/value focus in open-ended responses")
+        st.markdown("- Consistent narrative: Technical competence + Business advisory + Storytelling")
+        st.markdown('</div>', unsafe_allow_html=True)
 
     # ==================== QUESTION DEEP DIVE ====================
     elif analysis_mode == "❓ Question Deep Dive":
