@@ -6,21 +6,77 @@ Transform 100+ survey responses into strategic intelligence and actionable insig
 
 ## 🚀 Quick Start
 
-### Step 1: Generate Insights Report (5 seconds)
+### First-Time Setup (One-Time)
+
+**Windows:**
+```bash
+Double-click: setup.bat
+```
+
+**Mac/Linux:**
+```bash
+./setup.sh
+```
+
+This creates a virtual environment and installs all dependencies (~5 minutes).
+
+---
+
+### Daily Use
+
+#### Step 1: Generate Insights Report (5 seconds)
+
+**Windows:**
 ```bash
 Double-click: 1_GENERATE_REPORT.bat
 ```
+
+**Mac/Linux:**
+```bash
+./1_generate_report.sh
+```
+
 - Analyzes all 1,415 responses automatically
 - Opens `INSIGHTS_REPORT_LATEST.txt` with all findings
 - Top themes, quick wins, cross-question patterns, executive summary
 
-### Step 2: Explore Visually (optional)
+#### Step 2: Explore Visually (optional)
+
+**Windows:**
 ```bash
 Double-click: 2_LAUNCH_DASHBOARD.bat
 ```
+
+**Mac/Linux:**
+```bash
+./2_launch_dashboard.sh
+```
+
 - Opens interactive web app at http://localhost:8501
 - Word clouds, sentiment analysis, export charts
 - 5 views: Overview, Deep Dive, Sentiment, Quick Wins, Cross-Question
+
+---
+
+## 📦 Standalone Deployment
+
+### Build Executable (Advanced)
+
+Create a standalone executable for distribution:
+
+**Windows:**
+```bash
+build_executable.bat
+```
+
+**Mac/Linux:**
+```bash
+./build_executable.sh
+```
+
+This creates a `dist/SC_Survey_Analyzer/` folder containing a double-click executable with all dependencies bundled (~100MB).
+
+**Distribute:** Zip the `dist/SC_Survey_Analyzer/` folder and send to users. No Python installation required!
 
 ---
 
@@ -41,27 +97,32 @@ Double-click: 2_LAUNCH_DASHBOARD.bat
 
 ## 📁 Project Files
 
-### Main Tools
-- **`1_GENERATE_REPORT.bat`** - Generate insights report (start here)
-- **`2_LAUNCH_DASHBOARD.bat`** - Launch web app
+### Setup Scripts
+- **`setup.bat`** / **`setup.sh`** - First-time setup (creates venv, installs dependencies)
+- **`build_executable.bat`** / **`build_executable.sh`** - Create standalone executable
+
+### Launchers
+- **`1_GENERATE_REPORT.bat`** / **`1_generate_report.sh`** - Generate insights report
+- **`2_LAUNCH_DASHBOARD.bat`** / **`2_launch_dashboard.sh`** - Launch web app
+
+### Core Application
 - **`generate_insights.py`** - Automated analysis engine
 - **`app.py`** - Interactive Streamlit dashboard
+- **`app.spec`** - PyInstaller configuration
 
 ### Data
 - **`raw-data.csv`** - Survey responses (1,415 responses)
-- **`INSIGHTS_REPORT_LATEST.txt`** - Latest analysis report
-- **`presales_survey_analysis.xlsx`** - Excel workbook (optional)
-
-### Methodology Guides
-- **`README_START_HERE.md`** - 4-week analysis roadmap
-- **`Thematic_Coding_Framework.md`** - Analysis methodology
-- **`Quick_Wins_Guide.md`** - Prioritization framework
-- **`Executive_Summary_Template.md`** - Report structure
+- **`INSIGHTS_REPORT_LATEST.txt`** - Generated analysis report (auto-created)
 
 ### Configuration
-- **`requirements.txt`** - Python dependencies
-- **`venv/`** - Virtual environment (pre-configured)
-- **`.gitignore`** - Git exclusions
+- **`requirements.txt`** - Python dependencies (11 packages)
+- **`.streamlit/config.toml`** - Dashboard theme configuration
+- **`venv/`** - Virtual environment (created by setup scripts)
+
+### Documentation
+- **`README.md`** - This file
+- **`QUICK_START.md`** - Detailed quick start guide
+- **`CLAUDE.md`** - Project methodology and architecture
 
 ---
 
@@ -122,18 +183,55 @@ Double-click: 2_LAUNCH_DASHBOARD.bat
 
 ## 🛠️ Troubleshooting
 
-### Web app won't start
+### Setup fails or dependencies missing
+
+**Windows:**
 ```bash
-venv\Scripts\python.exe -m pip install -r requirements.txt
+setup.bat
+```
+
+**Mac/Linux:**
+```bash
+./setup.sh
+```
+
+If issues persist, manually create venv:
+```bash
+python -m venv venv
+venv\Scripts\activate    # Windows
+source venv/bin/activate # Mac/Linux
+pip install -r requirements.txt
+```
+
+### Web app won't start
+Reinstall dependencies:
+```bash
+venv\Scripts\activate    # Windows
+source venv/bin/activate # Mac/Linux
+pip install -r requirements.txt
 ```
 
 ### No data loaded
 - Ensure `raw-data.csv` is in project directory
 - Check CSV has "Question,Responses" header
+- Verify file encoding is UTF-8
 
 ### Sentiment analysis errors
 ```bash
-venv\Scripts\python.exe -m textblob.download_corpora
+venv\Scripts\python.exe -m textblob.download_corpora  # Windows
+venv/bin/python -m textblob.download_corpora          # Mac/Linux
+```
+
+### PyInstaller build fails
+Ensure PyInstaller is installed:
+```bash
+pip install pyinstaller
+```
+
+Clean previous builds:
+```bash
+rmdir /s /q build dist  # Windows
+rm -rf build dist       # Mac/Linux
 ```
 
 ---

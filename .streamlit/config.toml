@@ -1,0 +1,21 @@
+# Streamlit Theme Configuration
+# Google Maps-Inspired Vibrant Orange & Blue Theme
+
+[theme]
+# Primary color - Vibrant Blue (Google Maps style)
+primaryColor = "#4285F4"
+
+# Background colors
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F7FA"
+
+# Text color - Blue-gray dark for readability
+textColor = "#37474F"
+
+# Font
+font = "sans serif"
+
+[server]
+# Enable CORS for development
+enableCORS = false
+enableXsrfProtection = false
