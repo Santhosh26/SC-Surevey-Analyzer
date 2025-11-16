@@ -57,7 +57,7 @@ INSIGHTS_REPORT_*.txt
 future_*.html
 
 # PyInstaller
-*.spec
+# *.spec - KEEP app.spec (custom configuration)
 
 # Claude Code IDE
 .claude/
