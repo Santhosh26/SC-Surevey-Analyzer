@@ -276,36 +276,303 @@ def create_response_distribution(df):
     return fig
 
 # ==================== SENTIMENT ANALYSIS ====================
+# ==================== Question-Aware Sentiment Configuration ====================
+
+# Question context mapping - defines sentiment bias for each question
+QUESTION_CONTEXT = {
+    # Negative bias - these questions ask about problems/pain points
+    'challenges': ['What are the biggest challenges', 'operational challenges', 'biggest_challenges'],
+    'stop_doing': ['What should we STOP doing', 'stop doing', 'STOP'],
+
+    # Positive bias - these questions ask about strengths/initiatives
+    'start_doing': ['What should we START doing', 'start doing', 'START'],
+    'human_value': ['uniquely human', 'human value', 'humans'],
+    'team_culture': ['How would you describe', 'team culture', 'describe our team'],
+
+    # Neutral - informational questions
+    'ai_tools': ['AI tools', 'currently using', 'tools you use'],
+    'future_mission': ['future mission', '2 years', 'mission'],
+}
+
+# Gap/need indicator patterns - these indicate missing capabilities
+GAP_PATTERNS = [
+    r'\bmore\s+\w+',           # "more collaboration", "more support"
+    r'\bbetter\s+\w+',         # "better communication", "better tools"
+    r'\bneed\s+\w+',           # "need training", "need resources"
+    r'\bneeds?\s+to\b',        # "needs to improve", "need to change"
+    r'\bshould\s+\w+',         # "should focus", "should prioritize"
+    r'\blacking\b',            # "lacking clarity"
+    r'\bnot\s+enough\b',       # "not enough time"
+    r'\binsufficient\b',       # "insufficient resources"
+    r'\bwithout\b',            # "without proper support"
+    r'\blisten\s+more\b',      # "listen more" (specific case)
+    r'\bactive\s+listening\b', # "active listening" (specific case)
+    r'\bimprove\s+\w+',        # "improve processes"
+]
+
+# Negation patterns - indicate problems or dissatisfaction
+NEGATION_PATTERNS = [
+    r'\bno\s+\w+',             # "no support", "no time"
+    r'\bnot\b',                # "not working", "not effective"
+    r'\bdon\'?t\b',            # "don't have", "dont know"
+    r'\bcan\'?t\b',            # "can't access", "cant deliver"
+    r'\bnever\b',              # "never enough"
+    r'\bstop\b',               # "stop doing X"
+    r'\bavoid\b',              # "avoid meetings"
+]
+
+# Pain point keywords - explicitly negative in business context
+PAIN_KEYWORDS = [
+    'challenge', 'problem', 'issue', 'struggle', 'difficult', 'hard',
+    'frustrat', 'pain', 'blocker', 'obstacle', 'barrier', 'constraint',
+    'overwork', 'stretch', 'burn', 'overwhelm', 'stress', 'complain',
+    'incompetent', 'poor', 'bad', 'lack', 'miss', 'unavail', 'inadequate'
+]
+
+# Strength keywords - explicitly positive
+STRENGTH_KEYWORDS = [
+    'trust', 'empathy', 'connection', 'relationship', 'collaborat', 'support',
+    'innovat', 'creative', 'expert', 'knowledge', 'skill', 'passion',
+    'dedicated', 'commit', 'quality', 'excellent', 'strong', 'effective'
+]
+
+# ==================== Question-Aware Sentiment Functions ====================
+
+def preprocess_response(response):
+    """Preprocess response text for better sentiment analysis"""
+    if pd.isna(response) or not isinstance(response, str):
+        return ""
+    # Replace underscores with spaces for compound words
+    cleaned = response.replace('_', ' ')
+    # Remove extra whitespace
+    cleaned = ' '.join(cleaned.split())
+    return cleaned
+
+
+def detect_question_context(question_text):
+    """Detect the context/bias of a question based on its text"""
+    if pd.isna(question_text):
+        return 'neutral'
+
+    question_lower = question_text.lower()
+
+    # Check for negative bias questions (challenges, pain points)
+    for pattern in QUESTION_CONTEXT['challenges'] + QUESTION_CONTEXT['stop_doing']:
+        if pattern.lower() in question_lower:
+            return 'negative_bias'
+
+    # Check for positive bias questions (strengths, initiatives)
+    for pattern in QUESTION_CONTEXT['start_doing'] + QUESTION_CONTEXT['human_value']:
+        if pattern.lower() in question_lower:
+            return 'positive_bias'
+
+    return 'neutral'
+
+
+def detect_gap_indicators(response):
+    """Detect if response contains gap/need indicators"""
+    if not response:
+        return False
+
+    response_lower = response.lower()
+
+    for pattern in GAP_PATTERNS:
+        if re.search(pattern, response_lower):
+            return True
+
+    return False
+
+
+def detect_negation(response):
+    """Detect if response contains negation patterns"""
+    if not response:
+        return False
+
+    response_lower = response.lower()
+
+    for pattern in NEGATION_PATTERNS:
+        if re.search(pattern, response_lower):
+            return True
+
+    return False
+
+
+def contains_keywords(response, keywords):
+    """Check if response contains any keywords from a list"""
+    if not response:
+        return False
+
+    response_lower = response.lower()
+
+    for keyword in keywords:
+        if keyword in response_lower:
+            return True
+
+    return False
+
+
+def new_contextual_sentiment(response, question_text, question_context):
+    """
+    NEW: Question-aware contextual sentiment analysis
+
+    Args:
+        response: Response text
+        question_text: Full question text
+        question_context: Detected context ('negative_bias', 'positive_bias', 'neutral')
+
+    Returns:
+        tuple: (sentiment_label, confidence_score, reasoning)
+    """
+    from textblob import TextBlob
+
+    # Preprocess
+    cleaned_response = preprocess_response(response)
+
+    if not cleaned_response:
+        return 'Neutral', 0.5, 'Empty response'
+
+    # Get TextBlob baseline polarity with overrides for known quirks
+    # TextBlob has lexical issues with certain words (e.g., "base" = -0.8)
+    TEXTBLOB_OVERRIDES = {
+        'knowledge base': 0.1,      # TextBlob incorrectly gives -0.8 due to "base"
+        'base': 0.0,                # TextBlob incorrectly associates with "base instincts"
+        'poc': 0.0,                 # TextBlob may confuse with "pox"
+        'having a knowledge base': 0.2,  # Explicitly positive in survey context
+    }
+
+    response_lower = cleaned_response.lower()
+    base_polarity = None
+
+    # Check for overrides first
+    for phrase, override_polarity in TEXTBLOB_OVERRIDES.items():
+        if phrase in response_lower:
+            base_polarity = override_polarity
+            break
+
+    # Use TextBlob if no override found
+    if base_polarity is None:
+        try:
+            blob = TextBlob(cleaned_response)
+            base_polarity = blob.sentiment.polarity
+        except:
+            base_polarity = 0.0
+
+    # Initialize decision factors
+    reasoning_parts = []
+    sentiment_score = base_polarity  # Start with TextBlob baseline
+    confidence = 0.5
+
+    # RULE 1: Question context bias
+    if question_context == 'negative_bias':
+        sentiment_score -= 0.4
+        confidence = 0.8
+        reasoning_parts.append(f"Question has negative context")
+    elif question_context == 'positive_bias':
+        sentiment_score += 0.5  # Increased from 0.3 to better overcome TextBlob quirks
+        confidence = 0.7
+        reasoning_parts.append(f"Question has positive context")
+
+    # RULE 2: Gap/need indicators override positive words
+    has_gap_indicator = detect_gap_indicators(cleaned_response)
+    if has_gap_indicator:
+        sentiment_score -= 0.5
+        confidence = 0.9
+        reasoning_parts.append("Contains gap/need indicator (more/better/need/should)")
+
+    # RULE 2.5: Uncertainty detection (neutral, not negative)
+    UNCERTAINTY_PATTERNS = [r'\bnot sure\b', r'\bunsure\b', r'\bdon\'?t know\b', r'\buncertain\b']
+    has_uncertainty = any(re.search(pattern, response_lower) for pattern in UNCERTAINTY_PATTERNS)
+
+    # RULE 3: Negation patterns (but context-aware)
+    has_negation = detect_negation(cleaned_response)
+
+    # Special case: "stop" in positive_bias questions is constructive, not negative
+    # Example: "START doing: Stop spoon-feeding AE" is a positive suggestion to eliminate a pain point
+    if question_context == 'positive_bias' and 'stop' in response_lower and not has_uncertainty:
+        has_negation = False  # Override - this is a constructive suggestion, not a complaint
+
+    if has_uncertainty:
+        # Force neutral for uncertain responses like "I'm not sure"
+        sentiment_score = 0.0
+        confidence = 0.85
+        reasoning_parts.append("Expresses uncertainty")
+    elif has_negation:
+        sentiment_score -= 0.4
+        confidence = 0.85
+        reasoning_parts.append("Contains negation pattern (no/not/stop/can't)")
+
+    # RULE 4: Pain point keywords
+    if contains_keywords(cleaned_response, PAIN_KEYWORDS):
+        sentiment_score -= 0.3
+        confidence = max(confidence, 0.8)
+        reasoning_parts.append("Contains pain point keywords")
+
+    # RULE 5: Strength keywords (BUT not if gap indicator present - gaps take priority)
+    if contains_keywords(cleaned_response, STRENGTH_KEYWORDS) and not has_gap_indicator:
+        sentiment_score += 0.3
+        confidence = max(confidence, 0.8)
+        reasoning_parts.append("Contains strength keywords")
+
+    # RULE 6: Short responses (1-3 words) inherit more question context
+    word_count = len(cleaned_response.split())
+    if word_count <= 3:
+        if question_context == 'negative_bias':
+            sentiment_score -= 0.2
+            reasoning_parts.append("Short response in negative context")
+        elif question_context == 'positive_bias':
+            sentiment_score += 0.2
+            reasoning_parts.append("Short response in positive context")
+
+    # RULE 7: Specific edge cases
+    response_lower = cleaned_response.lower()
+
+    # "listen more", "active listening" → Negative (indicates gap)
+    if 'listen' in response_lower and ('more' in response_lower or 'active' in response_lower):
+        sentiment_score = -0.6
+        confidence = 0.95
+        reasoning_parts.append("Listening gap indicator (listen more/active listening)")
+
+    # POC in "stop doing" context → Negative
+    if 'poc' in response_lower and question_context == 'negative_bias':
+        sentiment_score = -0.5
+        confidence = 0.9
+        reasoning_parts.append("POC in negative context (pain point)")
+
+    # Final classification based on adjusted score
+    if sentiment_score > 0.1:
+        final_sentiment = 'Positive'
+    elif sentiment_score < -0.1:
+        final_sentiment = 'Negative'
+    else:
+        final_sentiment = 'Neutral'
+
+    # Build reasoning summary
+    if not reasoning_parts:
+        reasoning_parts.append(f"TextBlob polarity: {base_polarity:.2f}")
+
+    reasoning = '; '.join(reasoning_parts)
+
+    return final_sentiment, confidence, reasoning
+
 
 @st.cache_data
-def analyze_sentiment(responses):
-    """Perform basic sentiment analysis on responses"""
-    from textblob import TextBlob
+def analyze_sentiment(responses, question_text):
+    """Question-aware sentiment analysis with context understanding"""
+    # Detect question context
+    question_context = detect_question_context(question_text)
 
     sentiments = []
     for response in responses:
-        try:
-            blob = TextBlob(str(response))
-            polarity = blob.sentiment.polarity
+        sentiment, confidence, reasoning = new_contextual_sentiment(
+            response, question_text, question_context
+        )
 
-            if polarity > 0.1:
-                sentiment = 'Positive'
-            elif polarity < -0.1:
-                sentiment = 'Negative'
-            else:
-                sentiment = 'Neutral'
-
-            sentiments.append({
-                'response': response,
-                'polarity': polarity,
-                'sentiment': sentiment
-            })
-        except:
-            sentiments.append({
-                'response': response,
-                'polarity': 0,
-                'sentiment': 'Neutral'
-            })
+        sentiments.append({
+            'response': response,
+            'sentiment': sentiment,
+            'confidence': confidence,
+            'reasoning': reasoning
+        })
 
     return pd.DataFrame(sentiments)
 
@@ -602,8 +869,21 @@ def main():
         # Filter data
         question_df = df[df['Question'] == selected_question]
 
+        # Run sentiment analysis
         with st.spinner("Analyzing sentiment..."):
-            sentiment_df = analyze_sentiment(question_df['Response'])
+            sentiment_df = analyze_sentiment(question_df['Response'].tolist(), selected_question)
+
+        # Display question context
+        question_context = detect_question_context(selected_question)
+        context_emoji = {"negative_bias": "⚠️", "positive_bias": "✅", "neutral": "ℹ️"}
+        context_label = {"negative_bias": "Negative Bias (Pain Points/Challenges)",
+                       "positive_bias": "Positive Bias (Strengths/Initiatives)",
+                       "neutral": "Neutral (Informational)"}
+
+        st.markdown(f'<div class="insight-box">', unsafe_allow_html=True)
+        st.markdown(f"**{context_emoji.get(question_context, 'ℹ️')} Question Context:** {context_label.get(question_context, 'Neutral')}")
+        st.markdown(f"**Average Confidence:** {sentiment_df['confidence'].mean():.2f}")
+        st.markdown('</div>', unsafe_allow_html=True)
 
         # Sentiment distribution
         col1, col2 = st.columns([1, 2])
@@ -621,22 +901,45 @@ def main():
                     count = sentiment_counts[sentiment]
                     pct = (count / total) * 100
                     st.markdown(f"**{sentiment}:** {count} responses ({pct:.1f}%)")
+                else:
+                    st.markdown(f"**{sentiment}:** 0 responses (0.0%)")
 
-        # Most positive/negative responses
+        # Top responses by sentiment (3 columns: Positive, Neutral, Negative)
         st.markdown("---")
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns(3)
 
         with col1:
-            st.markdown("### Most Positive Responses")
-            positive_df = sentiment_df[sentiment_df['sentiment'] == 'Positive'].nlargest(5, 'polarity')
-            for idx, row in positive_df.iterrows():
-                st.markdown(f'<div class="quote-box">"{row["response"]}" (Score: {row["polarity"]:.2f})</div>', unsafe_allow_html=True)
+            st.markdown("### 👍 Most Positive")
+            positive_df = sentiment_df[sentiment_df['sentiment'] == 'Positive']
+
+            if len(positive_df) > 0:
+                positive_df = positive_df.nlargest(5, 'confidence')
+                for idx, row in positive_df.iterrows():
+                    st.markdown(f'<div class="quote-box">"{row["response"]}"<br><small>Confidence: {row["confidence"]:.2f}</small></div>', unsafe_allow_html=True)
+            else:
+                st.info("No positive responses")
 
         with col2:
-            st.markdown("### Most Negative Responses")
-            negative_df = sentiment_df[sentiment_df['sentiment'] == 'Negative'].nsmallest(5, 'polarity')
-            for idx, row in negative_df.iterrows():
-                st.markdown(f'<div class="quote-box">"{row["response"]}" (Score: {row["polarity"]:.2f})</div>', unsafe_allow_html=True)
+            st.markdown("### ⚖️ Most Neutral")
+            neutral_df = sentiment_df[sentiment_df['sentiment'] == 'Neutral']
+
+            if len(neutral_df) > 0:
+                neutral_df = neutral_df.nlargest(5, 'confidence')
+                for idx, row in neutral_df.iterrows():
+                    st.markdown(f'<div class="quote-box">"{row["response"]}"<br><small>Confidence: {row["confidence"]:.2f}</small></div>', unsafe_allow_html=True)
+            else:
+                st.info("No neutral responses")
+
+        with col3:
+            st.markdown("### 👎 Most Negative")
+            negative_df = sentiment_df[sentiment_df['sentiment'] == 'Negative']
+
+            if len(negative_df) > 0:
+                negative_df = negative_df.nlargest(5, 'confidence')
+                for idx, row in negative_df.iterrows():
+                    st.markdown(f'<div class="quote-box">"{row["response"]}"<br><small>Confidence: {row["confidence"]:.2f}</small></div>', unsafe_allow_html=True)
+            else:
+                st.info("No negative responses")
 
     # ==================== QUICK WINS ====================
     elif analysis_mode == "🎯 Quick Wins":

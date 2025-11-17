@@ -1,0 +1,557 @@
+================================================================================
+TOP 50 RECLASSIFICATION EXAMPLES
+================================================================================
+Generated: 2025-11-16 21:31:08
+
+--------------------------------------------------------------------------------
+Example 745
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "Listening more"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Negative (Confidence: 0.95)
+Reasoning: Listening gap indicator (listen more/active listening)
+
+--------------------------------------------------------------------------------
+Example 1009
+--------------------------------------------------------------------------------
+Question: As routine tasks get automated, what becomes the most important, uniqu...
+Response: "Active listening and understanding what client actually needs to solve their problems"
+Question Context: positive_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: -0.07)
+New Sentiment: Negative (Confidence: 0.95)
+Reasoning: Question has positive context (positive_bias); Contains gap/need indicator (more/better/need/should); Contains pain point keywords; Listening gap indicator (listen more/active listening)
+
+--------------------------------------------------------------------------------
+Example 662
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "Listen more.."
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Negative (Confidence: 0.95)
+Reasoning: Contains gap/need indicator (more/better/need/should); Listening gap indicator (listen more/active listening)
+
+--------------------------------------------------------------------------------
+Example 455
+--------------------------------------------------------------------------------
+Question: How would you use AI to be more efficient in your role?
+Response: "Agents Agents Agents and more Agents"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 893
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "We should have Practice leads to bridge PM with field"
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 449
+--------------------------------------------------------------------------------
+Question: How would you use AI to be more efficient in your role?
+Response: "Enhance AI as part of the offering"
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 444
+--------------------------------------------------------------------------------
+Question: How would you use AI to be more efficient in your role?
+Response: "Knowing more about the computation"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 653
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "We should be even more informed on what’s out there"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 901
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "More focus"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1220
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 390
+--------------------------------------------------------------------------------
+Question: How would you use AI to be more efficient in your role?
+Response: "Automate tasks and enhance insights."
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 384
+--------------------------------------------------------------------------------
+Question: How would you use AI to be more efficient in your role?
+Response: "AI help more broaden information and make faster process"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 900
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "More engagement"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1223
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1224
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1225
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "POC"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 404
+--------------------------------------------------------------------------------
+Question: How would you use AI to be more efficient in your role?
+Response: "Gather our support info to better fix customer issues"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should); Contains pain point keywords; Contains strength keywords
+
+--------------------------------------------------------------------------------
+Example 709
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "we need to know more about their business and how we can help them with our technology"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 909
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "faster outcome of process - eg Exceptions to allow us to spend more time with the customer."
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 911
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "We win only as a team. PS and CS need to ramp up. Marketing needs work"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.40)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1157
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "POC"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 922
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "with PM - better communication to bring more clients necessities to our products 
+With PS - doing presales together"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 924
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "Need to have regular monthly enablement calls to hear customer feedbacks, add or remove bugs or features, do trainings! , do competitive analysis, add more make sense use cases to the customers"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.25)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 930
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "with customer success more cases or solving problems"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.40)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should); Contains pain point keywords
+
+--------------------------------------------------------------------------------
+Example 1152
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1147
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "PoC"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 233
+--------------------------------------------------------------------------------
+Question: The Future Mission: Looking 2 years ahead, what do you believe will be...
+Response: "More a business advisor vs techincal advisor"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1146
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "POC"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1145
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "POC"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1252
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1141
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1255
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 659
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "Understand the business and link with customer need as use case"
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 668
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "Industry use cases , OT needs to maintain demo scripts ready to use based on customer industry"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.20)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 664
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "We need to empathize with the pain of the customer."
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should); Contains pain point keywords
+
+--------------------------------------------------------------------------------
+Example 743
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "Use teams & departments appropriately + stand infront of the customer more + makenit more rewarding for presales team member when they do large deals"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.44)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1185
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 838
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "Closer and more engaged"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1192
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "Poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 1193
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 847
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "Need to get closer to marketing."
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 770
+--------------------------------------------------------------------------------
+Question: What key outcomes should define success for Presales of the future, be...
+Response: "Better cross sales / upsell . Managing existing install"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.25)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 850
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "Need a formal communication matrix for easy access"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.43)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1170
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "PoC"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 854
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "Better handovers"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 857
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "We should be deeper involved in product definition"
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 860
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "More integrated, regular , proactive and community driven"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.25)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 1203
+--------------------------------------------------------------------------------
+Question: What should we stop doing  today?
+Response: "poc"
+Question Context: negative_bias
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Question has negative context (negative_bias); Short response in negative context; POC in negative context (pain point)
+
+--------------------------------------------------------------------------------
+Example 869
+--------------------------------------------------------------------------------
+Question: How should our team's relationship with Product Management , Marketing...
+Response: "We should be the communication hub"
+Question Context: neutral
+
+Old Sentiment: Neutral (TextBlob Polarity: 0.00)
+New Sentiment: Negative (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+--------------------------------------------------------------------------------
+Example 728
+--------------------------------------------------------------------------------
+Question: The Buyer's Experience: Our customers are more informed  than ever. Ho...
+Response: "Ask more questions"
+Question Context: neutral
+
+Old Sentiment: Positive (TextBlob Polarity: 0.50)
+New Sentiment: Neutral (Confidence: 0.90)
+Reasoning: Contains gap/need indicator (more/better/need/should)
+
+================================================================================
