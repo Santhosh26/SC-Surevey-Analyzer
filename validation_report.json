@@ -1,0 +1,1080 @@
+{
+  "timestamp": "2026-01-09T11:38:47.468239",
+  "summaries_file": "llm_summaries.json",
+  "raw_data_file": "raw-data.csv",
+  "tests": [
+    {
+      "test_name": "Quote Hallucination Detection",
+      "pass_rate": 85.71428571428571,
+      "required": 100.0,
+      "status": "FAIL",
+      "details": [
+        {
+          "question": "As routine tasks get automated, what becomes the most important, uniquely human value that Presales delivers?",
+          "quote": "Active listening and understanding what client actually needs to solve their problems",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most important, uniquely human value that Presales delivers?",
+          "quote": "Emotional Intelligence and Trust Building",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most important, uniquely human value that Presales delivers?",
+          "quote": "Translating customer's needs and pains into solutions",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most important, uniquely human value that Presales delivers?",
+          "quote": "Trusted advisory, relationship, addressing customer challenges with better story telling",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most important, uniquely human value that Presales delivers?",
+          "quote": "People buy from people!",
+          "status": "PASS",
+          "match_type": "fuzzy_90%"
+        },
+        {
+          "question": "What do you believe are the future roles in International Presales?",
+          "quote": "Solution Architects - Technical Credibility (69 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "What do you believe are the future roles in International Presales?",
+          "quote": "Innovation Leads - co-creation and rapid pilots (51 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "What do you believe are the future roles in International Presales?",
+          "quote": "Demo specialist - AI-powered Inspiration (38 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "What do you believe are the future roles in International Presales?",
+          "quote": "Industry Value Consultants - CXO Engagement (34 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "What do you believe are the future roles in International Presales?",
+          "quote": "Business Value Engineers ROI/TCO Justification (33 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "How should our team's relationship with Product Management , Marketing, Professional Services and Customer Success evolve?",
+          "quote": "We should not treat these as different teams. We are all part of a single team from a customers pers",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How should our team's relationship with Product Management , Marketing, Professional Services and Customer Success evolve?",
+          "quote": "reactive feedback to proactive collaboration",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How should our team's relationship with Product Management , Marketing, Professional Services and Customer Success evolve?",
+          "quote": "We should have Practice leads to bridge PM with field",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How should our team's relationship with Product Management , Marketing, Professional Services and Customer Success evolve?",
+          "quote": "Presales is the face of all these roles",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How should our team's relationship with Product Management , Marketing, Professional Services and Customer Success evolve?",
+          "quote": "Need to have regular monthly enablement calls to hear customer feedbacks, add or remove bugs or feat",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you describe  the team culture in International Presales?",
+          "quote": "Collaborative",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you describe  the team culture in International Presales?",
+          "quote": "Supportive",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you describe  the team culture in International Presales?",
+          "quote": "Overworked",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you describe  the team culture in International Presales?",
+          "quote": "Helping_each_other",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you describe  the team culture in International Presales?",
+          "quote": "strive_for_excellence",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "quote": "Automate demos so we can do more strategic upskilling",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "quote": "Prompts that save me reading many documents before I know something",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "quote": "Carefully! VERY CAREFULLY .. so that I don't lose my edge",
+          "status": "PASS",
+          "match_type": "fuzzy_90%"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "quote": "Stop searching, start working",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "quote": "Use it everywhere possible, build your own AI tools",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Future Profile: Rank these key skillsets & mindsets that you believe will be key for Presales of the future",
+          "quote": "Industry-specific business acumen (30 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "The Future Profile: Rank these key skillsets & mindsets that you believe will be key for Presales of the future",
+          "quote": "Advanced storytelling (30 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "The Future Profile: Rank these key skillsets & mindsets that you believe will be key for Presales of the future",
+          "quote": "Adaptability & customer empathy (21 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "The Future Profile: Rank these key skillsets & mindsets that you believe will be key for Presales of the future",
+          "quote": "Technical expertise (20 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "The Future Profile: Rank these key skillsets & mindsets that you believe will be key for Presales of the future",
+          "quote": "Financial modelling (0 votes)",
+          "status": "FAIL",
+          "match_type": "NOT_FOUND"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  than ever. How should our team evolve the way we demonstrate value to our customers? ",
+          "quote": "Lead with Insight, Not Slides",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  than ever. How should our team evolve the way we demonstrate value to our customers? ",
+          "quote": "We need to empathize with the pain of the customer.",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  than ever. How should our team evolve the way we demonstrate value to our customers? ",
+          "quote": "Be an advisor not only a sales person",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  than ever. How should our team evolve the way we demonstrate value to our customers? ",
+          "quote": "Research the customer better, to be able to present/demon something that resonates",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  than ever. How should our team evolve the way we demonstrate value to our customers? ",
+          "quote": "Embed customer's business value drivers into the demo",
+          "status": "PASS",
+          "match_type": "fuzzy_90%"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you believe will be the primary mission or purpose of the Presales role?",
+          "quote": "strategic value architects — leveraging data, AI, and deep domain expertise to  evolve from solution",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you believe will be the primary mission or purpose of the Presales role?",
+          "quote": "AI Commander, Reviewer, and Final Decision Maker.",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you believe will be the primary mission or purpose of the Presales role?",
+          "quote": "Maintaining customer relationships and identifying opportunities - we are the 'consistent face' in a",
+          "status": "PASS",
+          "match_type": "fuzzy_90%"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you believe will be the primary mission or purpose of the Presales role?",
+          "quote": "Understanding Corporate strategies and aligning our solutions to business roadmaps. This requires th",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you believe will be the primary mission or purpose of the Presales role?",
+          "quote": "Proof reading AI work prior to submission",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "quote": "Copilot_chatgpt_canva",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "quote": "Aviator_ChatGPT_Napkin_Ai",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "quote": "Gemini_Groc_chatgpt",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "quote": "I_never_use",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "quote": "Custom_build_AI_tool",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks today? ",
+          "quote": "Incompetent_AEs",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks today? ",
+          "quote": "no_resoures_for_enablemen",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks today? ",
+          "quote": "Sales_dont_unserstand_bas",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks today? ",
+          "quote": "Product_release_too_slow",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks today? ",
+          "quote": "Not_knowing_who_does_what",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be important for Presales in the future? ",
+          "quote": "AI_Driven_SC",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be important for Presales in the future? ",
+          "quote": "Trusted-Advisor",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be important for Presales in the future? ",
+          "quote": "Human_relationship_build",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be important for Presales in the future? ",
+          "quote": "Prompt_engineering",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be important for Presales in the future? ",
+          "quote": "Value_articulation",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the future, beyond technical wins and closed deals?",
+          "quote": "Customer viewing us as a trusted advisor, not a sales enabler.",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the future, beyond technical wins and closed deals?",
+          "quote": "True solve of customer problem post implementation Solving real problem",
+          "status": "PASS",
+          "match_type": "fuzzy_90%"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the future, beyond technical wins and closed deals?",
+          "quote": "Bridge between sales and customers, between RD and customers, between partner and OT",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the future, beyond technical wins and closed deals?",
+          "quote": "Equivalent recognition and compensation as sales",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the future, beyond technical wins and closed deals?",
+          "quote": "translating features into value",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "quote": "Cross_product_pollination",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "quote": "Engage_only_on_qualified",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "quote": "Create_an_identity_for_SC",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "quote": "Dont_reinvent_wheel",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "quote": "Stop_considering_AE_as_da",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "quote": "Spoon_feeding_AE",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "quote": "Work_on_unqualified_deals",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "quote": "doing_supports_job",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "quote": "Considering_AE_as_our_dad",
+          "status": "PASS",
+          "match_type": "exact"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "quote": "We_should_start_saying_no",
+          "status": "PASS",
+          "match_type": "exact"
+        }
+      ],
+      "summary": "60/70 quotes found in raw data"
+    },
+    {
+      "test_name": "Response Count Validation",
+      "pass_rate": 85.71428571428571,
+      "required": 100.0,
+      "status": "FAIL",
+      "details": [
+        {
+          "question": "As routine tasks get automated, what becomes the most import",
+          "reported": 105,
+          "actual": 105,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are the future roles in International Pr",
+          "reported": 255,
+          "actual": 0,
+          "diff": 255,
+          "status": "FAIL"
+        },
+        {
+          "question": "How should our team's relationship with Product Management ,",
+          "reported": 106,
+          "actual": 106,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "How would you describe  the team culture in International Pr",
+          "reported": 133,
+          "actual": 133,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "reported": 115,
+          "actual": 115,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "The Future Profile: Rank these key skillsets & mindsets that",
+          "reported": 101,
+          "actual": 0,
+          "diff": 101,
+          "status": "FAIL"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  tha",
+          "reported": 106,
+          "actual": 106,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you belie",
+          "reported": 108,
+          "actual": 109,
+          "diff": -1,
+          "status": "PASS"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "reported": 175,
+          "actual": 175,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks to",
+          "reported": 84,
+          "actual": 84,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be im",
+          "reported": 118,
+          "actual": 118,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the ",
+          "reported": 82,
+          "actual": 82,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "reported": 135,
+          "actual": 135,
+          "diff": 0,
+          "status": "PASS"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "reported": 147,
+          "actual": 147,
+          "diff": 0,
+          "status": "PASS"
+        }
+      ],
+      "summary": "12/14 response counts within tolerance"
+    },
+    {
+      "test_name": "JSON Schema Validation",
+      "pass_rate": 100.0,
+      "required": 100.0,
+      "status": "PASS",
+      "errors": [],
+      "summary": "Schema valid"
+    },
+    {
+      "test_name": "Frequency Estimation Accuracy",
+      "pass_rate": 80.0,
+      "required": 80.0,
+      "status": "PASS",
+      "details": [
+        {
+          "question": "As routine tasks get automated, what becomes the most import",
+          "theme": "Trust & Credibility",
+          "claimed_freq": "38%",
+          "estimated_actual": "25%",
+          "diff": "13%",
+          "status": "PASS"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most import",
+          "theme": "Relationship Building",
+          "claimed_freq": "28%",
+          "estimated_actual": "18%",
+          "diff": "10%",
+          "status": "PASS"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most import",
+          "theme": "Empathy & Emotional Intelligence",
+          "claimed_freq": "15%",
+          "estimated_actual": "9%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most import",
+          "theme": "Human Connection & Personal Engagement",
+          "claimed_freq": "12%",
+          "estimated_actual": "18%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "As routine tasks get automated, what becomes the most import",
+          "theme": "Strategic Advisory & Problem-Solving",
+          "claimed_freq": "10%",
+          "estimated_actual": "3%",
+          "diff": "7%",
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are the future roles in International Pr",
+          "theme": "Solution Architects - Technical Credibility",
+          "claimed_freq": "27%",
+          "estimated_actual": "0%",
+          "diff": "27%",
+          "status": "FAIL"
+        },
+        {
+          "question": "What do you believe are the future roles in International Pr",
+          "theme": "Innovation Leads - co-creation and rapid pilots",
+          "claimed_freq": "20%",
+          "estimated_actual": "0%",
+          "diff": "20%",
+          "status": "FAIL"
+        },
+        {
+          "question": "What do you believe are the future roles in International Pr",
+          "theme": "Demo specialist - AI-powered Inspiration",
+          "claimed_freq": "15%",
+          "estimated_actual": "0%",
+          "diff": "15%",
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are the future roles in International Pr",
+          "theme": "Business Value Focus",
+          "claimed_freq": "26%",
+          "estimated_actual": "0%",
+          "diff": "26%",
+          "status": "FAIL"
+        },
+        {
+          "question": "What do you believe are the future roles in International Pr",
+          "theme": "Enablement & Scaling",
+          "claimed_freq": "12%",
+          "estimated_actual": "0%",
+          "diff": "12%",
+          "status": "PASS"
+        },
+        {
+          "question": "How should our team's relationship with Product Management ,",
+          "theme": "Enhanced Collaboration & Integration",
+          "claimed_freq": "45%",
+          "estimated_actual": "14%",
+          "diff": "31%",
+          "status": "FAIL"
+        },
+        {
+          "question": "How should our team's relationship with Product Management ,",
+          "theme": "Structured Communication Cadences",
+          "claimed_freq": "22%",
+          "estimated_actual": "6%",
+          "diff": "16%",
+          "status": "FAIL"
+        },
+        {
+          "question": "How should our team's relationship with Product Management ,",
+          "theme": "Customer Feedback Loop & Voice of Field",
+          "claimed_freq": "20%",
+          "estimated_actual": "26%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "How should our team's relationship with Product Management ,",
+          "theme": "Closer Engagement & Face-to-Face Interaction",
+          "claimed_freq": "15%",
+          "estimated_actual": "12%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "How should our team's relationship with Product Management ,",
+          "theme": "Presales as Strategic Hub/Quarterback",
+          "claimed_freq": "10%",
+          "estimated_actual": "3%",
+          "diff": "7%",
+          "status": "PASS"
+        },
+        {
+          "question": "How would you describe  the team culture in International Pr",
+          "theme": "Collaboration & Teamwork",
+          "claimed_freq": "45%",
+          "estimated_actual": "8%",
+          "diff": "37%",
+          "status": "FAIL"
+        },
+        {
+          "question": "How would you describe  the team culture in International Pr",
+          "theme": "Supportive Environment",
+          "claimed_freq": "16%",
+          "estimated_actual": "14%",
+          "diff": "2%",
+          "status": "PASS"
+        },
+        {
+          "question": "How would you describe  the team culture in International Pr",
+          "theme": "Innovation & Excellence",
+          "claimed_freq": "12%",
+          "estimated_actual": "2%",
+          "diff": "10%",
+          "status": "PASS"
+        },
+        {
+          "question": "How would you describe  the team culture in International Pr",
+          "theme": "Resilience & Drive",
+          "claimed_freq": "8%",
+          "estimated_actual": "2%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "How would you describe  the team culture in International Pr",
+          "theme": "Workload Concerns",
+          "claimed_freq": "4%",
+          "estimated_actual": "0%",
+          "diff": "4%",
+          "status": "PASS"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "theme": "Research & Information Gathering",
+          "claimed_freq": "35%",
+          "estimated_actual": "10%",
+          "diff": "25%",
+          "status": "FAIL"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "theme": "RFP/RFx Response Automation",
+          "claimed_freq": "25%",
+          "estimated_actual": "8%",
+          "diff": "17%",
+          "status": "FAIL"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "theme": "Demo & POC Preparation",
+          "claimed_freq": "18%",
+          "estimated_actual": "10%",
+          "diff": "8%",
+          "status": "PASS"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "theme": "Competitive Intelligence",
+          "claimed_freq": "15%",
+          "estimated_actual": "8%",
+          "diff": "7%",
+          "status": "PASS"
+        },
+        {
+          "question": "How would you use AI to be more efficient in your role?",
+          "theme": "Task Automation & Efficiency",
+          "claimed_freq": "20%",
+          "estimated_actual": "9%",
+          "diff": "11%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  tha",
+          "theme": "Storytelling & Customer Use Cases",
+          "claimed_freq": "45%",
+          "estimated_actual": "40%",
+          "diff": "5%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  tha",
+          "theme": "Deep Customer Understanding & Pain Points",
+          "claimed_freq": "35%",
+          "estimated_actual": "32%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  tha",
+          "theme": "Business Value & Outcome Quantification",
+          "claimed_freq": "12%",
+          "estimated_actual": "24%",
+          "diff": "12%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  tha",
+          "theme": "Personalization & Tailored Engagement",
+          "claimed_freq": "10%",
+          "estimated_actual": "1%",
+          "diff": "9%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Buyer's Experience: Our customers are more informed  tha",
+          "theme": "AI & Technology Leverage",
+          "claimed_freq": "8%",
+          "estimated_actual": "2%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you belie",
+          "theme": "AI Leadership & Enablement",
+          "claimed_freq": "55%",
+          "estimated_actual": "0%",
+          "diff": "55%",
+          "status": "FAIL"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you belie",
+          "theme": "Trusted Advisor Evolution",
+          "claimed_freq": "20%",
+          "estimated_actual": "24%",
+          "diff": "4%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you belie",
+          "theme": "Business Value & Strategic Alignment",
+          "claimed_freq": "15%",
+          "estimated_actual": "15%",
+          "diff": "0%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you belie",
+          "theme": "Productivity & Efficiency Optimization",
+          "claimed_freq": "8%",
+          "estimated_actual": "2%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "The Future Mission: Looking 2 years ahead, what do you belie",
+          "theme": "Cross-Portfolio & Industry Expertise",
+          "claimed_freq": "7%",
+          "estimated_actual": "4%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "theme": "ChatGPT Dominance",
+          "claimed_freq": "37%",
+          "estimated_actual": "26%",
+          "diff": "11%",
+          "status": "PASS"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "theme": "Microsoft Copilot Integration",
+          "claimed_freq": "31%",
+          "estimated_actual": "22%",
+          "diff": "9%",
+          "status": "PASS"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "theme": "Internal AI Tools (Aviator/OllieAI)",
+          "claimed_freq": "25%",
+          "estimated_actual": "0%",
+          "diff": "25%",
+          "status": "FAIL"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "theme": "Google Gemini Adoption",
+          "claimed_freq": "14%",
+          "estimated_actual": "13%",
+          "diff": "1%",
+          "status": "PASS"
+        },
+        {
+          "question": "What AI Tools do you currently use to help you in your role?",
+          "theme": "Multi-Tool Strategy",
+          "claimed_freq": "15%",
+          "estimated_actual": "0%",
+          "diff": "15%",
+          "status": "PASS"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks to",
+          "theme": "Enablement & Training Gaps",
+          "claimed_freq": "27%",
+          "estimated_actual": "24%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks to",
+          "theme": "Product Issues (Innovation, Features, Speed)",
+          "claimed_freq": "21%",
+          "estimated_actual": "18%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks to",
+          "theme": "Sales/AE Collaboration & Competency",
+          "claimed_freq": "15%",
+          "estimated_actual": "0%",
+          "diff": "15%",
+          "status": "PASS"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks to",
+          "theme": "Information & Resource Access",
+          "claimed_freq": "10%",
+          "estimated_actual": "4%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "What are your biggest challenges and internal bottlenecks to",
+          "theme": "Demo Environment & Technical Infrastructure",
+          "claimed_freq": "6%",
+          "estimated_actual": "4%",
+          "diff": "2%",
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be im",
+          "theme": "AI and AI-Related Skills",
+          "claimed_freq": "42%",
+          "estimated_actual": "3%",
+          "diff": "39%",
+          "status": "FAIL"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be im",
+          "theme": "Adaptability and Change Management",
+          "claimed_freq": "12%",
+          "estimated_actual": "10%",
+          "diff": "2%",
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be im",
+          "theme": "Communication and Storytelling",
+          "claimed_freq": "12%",
+          "estimated_actual": "8%",
+          "diff": "4%",
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be im",
+          "theme": "Business Acumen and Consulting Skills",
+          "claimed_freq": "8%",
+          "estimated_actual": "7%",
+          "diff": "1%",
+          "status": "PASS"
+        },
+        {
+          "question": "What do you believe are additional skillsets that will be im",
+          "theme": "Enterprise and Cross-Domain Knowledge",
+          "claimed_freq": "7%",
+          "estimated_actual": "5%",
+          "diff": "2%",
+          "status": "PASS"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the ",
+          "theme": "Trusted Advisor & Customer Trust",
+          "claimed_freq": "45%",
+          "estimated_actual": "48%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the ",
+          "theme": "Customer-Centric Value & Outcomes",
+          "claimed_freq": "28%",
+          "estimated_actual": "4%",
+          "diff": "24%",
+          "status": "FAIL"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the ",
+          "theme": "Long-term Relationship & Retention",
+          "claimed_freq": "18%",
+          "estimated_actual": "7%",
+          "diff": "11%",
+          "status": "PASS"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the ",
+          "theme": "Innovation & Continuous Learning",
+          "claimed_freq": "15%",
+          "estimated_actual": "7%",
+          "diff": "8%",
+          "status": "PASS"
+        },
+        {
+          "question": "What key outcomes should define success for Presales of the ",
+          "theme": "Cross-functional Alignment & Recognition",
+          "claimed_freq": "12%",
+          "estimated_actual": "4%",
+          "diff": "8%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "theme": "Knowledge Sharing & Collaboration",
+          "claimed_freq": "27%",
+          "estimated_actual": "15%",
+          "diff": "12%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "theme": "Product Enhancement & Innovation",
+          "claimed_freq": "16%",
+          "estimated_actual": "13%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "theme": "Enablement & Training",
+          "claimed_freq": "13%",
+          "estimated_actual": "10%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "theme": "AI Adoption & Innovation",
+          "claimed_freq": "7%",
+          "estimated_actual": "1%",
+          "diff": "6%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we start doing differently tomorrow?",
+          "theme": "Process Standardization & Focus",
+          "claimed_freq": "8%",
+          "estimated_actual": "5%",
+          "diff": "3%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "theme": "Doing AE/Sales Work (Spoon-feeding)",
+          "claimed_freq": "22%",
+          "estimated_actual": "11%",
+          "diff": "11%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "theme": "Working on Unqualified Opportunities",
+          "claimed_freq": "23%",
+          "estimated_actual": "10%",
+          "diff": "13%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "theme": "Excessive POCs and Demos",
+          "claimed_freq": "21%",
+          "estimated_actual": "1%",
+          "diff": "20%",
+          "status": "FAIL"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "theme": "Post-Sales/Support Work",
+          "claimed_freq": "10%",
+          "estimated_actual": "9%",
+          "diff": "1%",
+          "status": "PASS"
+        },
+        {
+          "question": "What should we stop doing  today?",
+          "theme": "Complaining/Negative Culture",
+          "claimed_freq": "7%",
+          "estimated_actual": "0%",
+          "diff": "7%",
+          "status": "PASS"
+        }
+      ],
+      "summary": "52/65 frequency claims within ±15% tolerance"
+    }
+  ]
+}

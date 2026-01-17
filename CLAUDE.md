@@ -8,87 +8,111 @@ This is a **Presales Survey Analysis Toolkit** designed to transform 100+ survey
 
 **Core Purpose:** Extract meaningful insights from open-ended survey responses to inform presales team transformation in 2025-2027.
 
-## Repository Structure
+## Quick Start Commands
 
-### Core Application Files
-- **`app.py`** - Streamlit interactive dashboard for data visualization and analysis
-- **`raw-data.csv`** - Exported survey responses in Question/Response format from Menti.com
-- **`requirements.txt`** - Python dependencies for the web app
-- **`venv/`** - Python virtual environment (not in git)
-
-### Documentation
-- **`README.md`** - User-facing getting started guide and usage instructions
-- **`CLAUDE.md`** - This file - technical documentation for AI assistants
-- **`Future plan.md`** - Roadmap and planned enhancements
-
-## Survey Structure
-
-The survey contains 14 questions covering:
-1. **Q1** - Team Culture
-2. **Q2** - Future Mission (2-year horizon)
-3. **Q3-Q5** - Skills and capabilities (includes 2 multiple choice questions)
-4. **Q6** - AI desired use cases
-5. **Q7** - AI tools currently used
-6. **Q11** - Uniquely human value proposition
-7. **Q12** - Top operational challenges
-8. **Q13** - Stop Doing (pain points to eliminate)
-9. **Q14** - Start Doing (new initiatives)
-
-12 questions are open-ended text responses, 2 are multiple choice (embedded in app.py as hardcoded data).
-
-## Dashboard Architecture
-
-### Quick Start
+**Setup (one-time):**
 ```bash
-# Activate virtual environment
-venv\Scripts\activate     # Windows
-source venv/bin/activate  # Mac/Linux
+# Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate    # Windows
+source venv/bin/activate # Mac/Linux
 
-# Launch dashboard
-streamlit run app.py
+# Install dependencies
+pip install -r requirements.txt
+
+# Download TextBlob corpora (required for sentiment analysis)
+python -m textblob.download_corpora
 ```
 
-The app opens at `http://localhost:8501` with six analysis views.
+**Development:**
+```bash
+# Run the dashboard
+streamlit run app.py
 
-### Dashboard Views
+# Access at: http://localhost:8501
+# Use --server.port 8502 flag to use different port if needed
+```
 
-**1. Overview (📈)**
-- Total response metrics and distribution
-- Response counts per question
-- Summary statistics table
+**Debugging:**
+```bash
+# View app logs (Streamlit debug output)
+streamlit run app.py --logger.level=debug
 
-**2. Multiple Choice Results (🎲)**
-- Future Roles: Vote distribution (6 role options, hardcoded in app.py lines 137-147)
-- Future Skillsets: Ranking results (5 skillsets, hardcoded in app.py lines 149-159)
+# Profile sentiment analysis performance
+python -c "from app import load_data; import time; start = time.time(); load_data(); print(f'Load time: {(time.time()-start)*1000:.2f}ms')"
+```
 
-**3. Question Deep Dive (❓)**
-- Interactive word clouds (matplotlib + WordCloud library)
-- Top word frequency analysis
-- Bar charts of word distribution (Plotly)
-- Random sample responses for qualitative review
+**LLM Features (Optional - requires AWS Bedrock setup):**
+```bash
+# Generate AI-powered summaries using Claude Opus 4.5
+python llm_batch_summarizer.py
 
-**4. Sentiment Analysis (💭)**
-- **Question-Aware Sentiment Classification** (context-intelligent, not just lexical)
-- Automatic classification into Positive/Neutral/Negative with confidence scores
-- Three-column display: Most Positive, Most Neutral, Most Negative responses
-- Sentiment distribution pie charts with percentage breakdowns
-- 8-rule contextual analysis system (see Sentiment Analysis section below)
+# Validate LLM outputs for hallucinations
+python llm_eval_validator.py
 
-**5. Quick Wins Analysis (🎯)**
-- Dedicated view for "Stop Doing" and "Start Doing" questions
-- Side-by-side word clouds
-- Top pain points and initiatives ranked by frequency
-- Impact × Effort matrix framework for prioritization
+# View AI insights in dashboard
+streamlit run app.py  # Then go to "🤖 AI Insights" tab
+```
 
-**6. Cross-Question Correlation (📊)**
-- Compare any two questions side-by-side
-- Identify common themes across questions
-- Spot gaps between aspiration vs reality
+## Repository Structure
 
-### Export Capabilities
-- Right-click any Plotly chart → "Download plot as PNG"
+- **`app.py`** - Streamlit interactive dashboard (1,267 lines) - see Architecture section
+- **`llm_batch_summarizer.py`** - AWS Bedrock integration for batch LLM summaries (19KB)
+- **`llm_eval_validator.py`** - Validation suite for LLM outputs (29KB)
+- **`raw-data.csv`** - Survey responses in "Question,Response" format from Menti.com
+- **`requirements.txt`** - Python dependencies (12 packages, pinned versions)
+- **`.streamlit/`** - Streamlit configuration directory
+- **`.claude/settings.local.json`** - Claude Code permissions (allows Python execution)
+- **Documentation:** README.md (user guide), CLAUDE.md (technical docs), AWS_BEDROCK_SETUP.md (LLM setup), Future plan.md (roadmap)
+
+## Application Architecture
+
+### Core Abstractions
+
+**`app.py` is organized into 4 main sections:**
+
+1. **Configuration (lines 1-95)** - Color scheme, page setup, CSS styling
+2. **Data Processing (lines 98-277)** - Load, clean, tokenize survey responses
+3. **Sentiment Analysis Engine (lines 278-577)** - Question-aware contextual classification
+4. **UI & Dashboard (lines 603-1267)** - Seven interactive views with caching
+
+### Key Functions
+
+**Data Pipeline:**
+- `load_data()` - Parses CSV, filters questions (<10 responses excluded), splits open-ended vs multiple choice
+- `tokenize_responses()` - Removes stopwords, lemmatizes, caches results
+
+**Sentiment Engine:**
+- `new_contextual_sentiment(response, question_text, question_context)` - Returns (sentiment, confidence, reasoning)
+- Implements 8-rule scoring system with question bias awareness and gap detection
+
+**Visualization:**
+- `create_wordcloud()` - matplotlib-based word clouds with plasma colormap
+- `create_frequency_chart()` - Plotly horizontal bar charts with interactive filtering
+- `create_response_distribution()` - Sentiment breakdowns and sample responses
+
+### Survey Data (14 questions)
+
+Open-ended questions: Q1 (culture), Q2 (mission), Q6-Q7 (AI), Q11 (human value), Q12 (challenges), Q13-Q14 (stop/start)
+Multiple choice questions: Q3-Q4 (hardcoded in app.py lines 137-159) - Future Roles & Skillsets
+
+## Dashboard Views (7 Interactive Tabs)
+
+All views use `@st.cache_data` for performance. Views are implemented as if/elif blocks in `main()` (app.py ~line 622).
+
+| View | Purpose | Key Features |
+|------|---------|--------------|
+| **📈 Overview** | Survey health check | Total responses, distribution per question, summary stats |
+| **🎲 Multiple Choice** | Vote distribution (Q3-Q4) | Future Roles (6 options), Skillsets ranking (5 options) |
+| **❓ Deep Dive** | Question-level analysis | Word clouds, top N word frequency, sample responses |
+| **💭 Sentiment** | Opinion extraction | Positive/Neutral/Negative with confidence, per-question sentiment distribution |
+| **🤖 AI Insights** | LLM-powered analysis | AWS Bedrock batch summaries, hallucination detection, strategic recommendations |
+| **🎯 Quick Wins** | Action prioritization | Stop Doing + Start Doing analysis, frequency ranking, Impact×Effort framework |
+| **📊 Correlation** | Cross-question patterns | Side-by-side comparison of any two questions |
+
+**Exports:**
+- Plotly charts: Right-click → "Download plot as PNG"
 - Word clouds: Right-click → "Save image as..."
-- Use exported charts directly in PowerPoint presentations
 
 ## Sentiment Analysis Implementation
 
@@ -309,90 +333,226 @@ Frequency threshold for prioritization:
 - **Medium frequency:** 15-30% of respondents
 - **Low frequency:** <15% of respondents
 
-## Data Format Standards
+## Data Format & Processing
 
-### CSV Structure
+### CSV Input Format
 ```
 Question,Response
-[Full question text],[Single response text]
+"How would you describe our team culture?","Collaborative and innovative"
+"What is our future mission?","Trusted advisor to customers"
 ```
-- Each row = one response to one question
-- Questions are repeated across rows
-- Responses can be single words or long-form text
-- UTF-8 encoding required
 
-### Data Filtering
+**Requirements:**
+- Header: `Question,Response` or `Question,Responses`
+- Encoding: UTF-8
+- Format: Each row = one response to one question (questions repeated)
+- The app auto-filters: empty responses, "nan" strings, questions with <10 responses
 
-The app automatically filters data (app.py lines 98-131):
-- Removes empty responses
-- Removes "nan" string values
-- Separates numeric responses (multiple choice vote counts) from text responses
-- Filters questions with <10 responses to reduce noise
+### Data Filtering (app.py lines 98-131)
+- `load_data()` separates open_ended (text) from multiple_choice (numeric) DataFrames
+- Multiple choice: hardcoded Q3-Q4 vote arrays + parsed numeric responses
+- Open-ended: deduplicated questions, sorted by response count
+- Only questions ≥10 responses included (reduces noise)
 
-## Code Modification Guidelines
+## Development Workflow
 
-### When working with app.py:
+### Making Changes to app.py
 
-**Color Scheme (lines 15-45)**
-- Centralized COLOR_SCHEME dictionary
-- Google Maps-inspired blue/orange theme
-- Update here to change entire app color palette
+**1. Identify the section:**
+- Configuration: lines 1-95 (COLOR_SCHEME, page config, CSS)
+- Data Processing: lines 98-277 (load_data, tokenization, helpers)
+- Sentiment Engine: lines 278-577 (QUESTION_CONTEXT, gap patterns, scoring)
+- Dashboard UI: lines 603-1087 (main view logic, if/elif blocks)
 
-**Data Loading (lines 98-131)**
-- `load_data()` function handles CSV parsing
-- Returns two DataFrames: open_ended and multiple_choice
-- Modify here to support different CSV formats
+**2. Test changes:**
+```bash
+# Quick test specific function
+python -c "from app import load_data, tokenize_responses; load_data()"
 
-**Sentiment Analysis (lines 278-577)**
-- Well-tested and validated implementation
-- If modifying, thoroughly test edge cases
-- Use reasoning output to debug classifications
+# Run full app and inspect output
+streamlit run app.py
+```
 
-**Visualization Functions (lines 200-276)**
-- `create_wordcloud()` - matplotlib-based word clouds
-- `create_frequency_chart()` - Plotly horizontal bar charts
-- `create_response_distribution()` - Plotly distribution charts
-- Update here to change visualization styles
+**3. Validate sentiment changes:**
+- Always test edge cases (gap indicators, negations, domain keywords)
+- Use reasoning output to debug: check why a response was classified
+- Compare against word clouds to validate directional accuracy
 
-**Main Dashboard (lines 603-1087)**
-- Six views organized as if/elif blocks based on `analysis_mode`
-- Each view is self-contained
-- Add new views by adding elif block and updating sidebar radio options
+**4. Preserve performance:**
+- Keep `@st.cache_data` decorators on expensive functions
+- Don't remove caching or you'll tank performance (sentiment ~0.13s on 1,434 responses)
 
-### Best Practices
+### Common Modifications
 
-- **Preserve color scheme consistency** - Use COLOR_SCHEME dictionary for all colors
-- **Maintain caching** - Keep `@st.cache_data` decorators to ensure performance
-- **Test with real data** - Always test modifications against raw-data.csv
-- **Update line number references** - If you add/remove code, update line numbers in documentation
+| Task | Location | Notes |
+|------|----------|-------|
+| Change colors globally | COLOR_SCHEME dict (lines 17-45) | All charts use this automatically |
+| Add sentiment keyword | PAIN_KEYWORDS or STRENGTH_KEYWORDS (~line 326) | Test impact on 5-10 sample responses |
+| Add gap pattern | GAP_PATTERNS (~line 298) | Use regex; gaps override strength keywords |
+| Add question context | QUESTION_CONTEXT (~line 282) | Categorize as negative_bias/positive_bias/neutral |
+| Add dashboard view | main() if/elif (~line 622) | Copy existing view structure; add sidebar option |
+| Support new CSV format | load_data() (~line 99) | Test with sample CSV; maintain open_ended/multiple_choice split |
 
-## Common Tasks
+## Debugging & Troubleshooting
 
-### Adding a New Dashboard View
+### Common Issues
 
-1. Add option to sidebar radio (app.py around line 620)
-2. Add elif block in main() function
-3. Use existing visualization functions or create new ones
-4. Follow existing view structure for consistency
+**"No module named streamlit"**
+- Activate venv: `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Mac/Linux)
+- Reinstall: `pip install -r requirements.txt`
 
-### Adding a New Keyword to Sentiment Analysis
+**"TextBlob download error"**
+- Run: `python -m textblob.download_corpora`
+- This downloads required corpora for sentiment analysis
 
-1. Locate PAIN_KEYWORDS or STRENGTH_KEYWORDS (app.py ~lines 326-337)
-2. Add keyword to list
-3. Test on sample data to verify impact
-4. Document in comments why keyword was added
+**"Port 8501 already in use"**
+- Use: `streamlit run app.py --server.port 8502` (or any free port)
 
-### Changing Visualization Colors
+**Sentiment analysis seems off**
+- Check confidence scores (<0.7 = lower confidence, needs review)
+- Compare against word clouds (word frequency should align with sentiment)
+- Use "Sentiment breakdown by question" to see patterns across similar questions
 
-1. Update COLOR_SCHEME dictionary (app.py lines 15-45)
-2. Changes automatically apply to all charts
-3. Test all dashboard views to ensure consistency
+### Testing Sentiment Classifications
 
-### Supporting New Question Types
+**Quick test specific responses:**
+```python
+from app import new_contextual_sentiment, QUESTION_CONTEXT
 
-1. Add question patterns to QUESTION_CONTEXT (app.py ~line 282)
-2. Test sentiment analysis on new questions
-3. Adjust bias weights if needed
+response = "More collaboration needed"
+question = "What should we START doing differently tomorrow?"
+sentiment, confidence, reasoning = new_contextual_sentiment(response, question, QUESTION_CONTEXT)
+print(f"{response} → {sentiment} (confidence: {confidence:.2f})")
+print(f"Reasoning: {reasoning}")
+```
+
+**Find misclassified responses:**
+1. Go to Sentiment Analysis view
+2. Filter by low confidence (<0.6)
+3. Review reasoning string to understand why it was classified
+4. If pattern emerges: add keyword to PAIN_KEYWORDS/STRENGTH_KEYWORDS or update gap patterns
+
+### Performance Profiling
+
+**Full data load time:**
+```bash
+python -c "from app import load_data; import time; start=time.time(); load_data(); print(f'{(time.time()-start)*1000:.2f}ms')"
+```
+
+**Expected baseline:** ~130ms (with caching) for 1,434 responses across 14 questions
+
+## LLM Features (AWS Bedrock Integration)
+
+### Overview
+
+The dashboard includes two LLM-powered scripts that use AWS Bedrock to generate AI insights:
+
+1. **`llm_batch_summarizer.py`** - Generates strategic summaries for each question and overall insights using Claude Opus 4.5
+2. **`llm_eval_validator.py`** - Validates LLM outputs to detect hallucinations and inconsistencies
+
+### Setup Requirements (Optional)
+
+LLM features are **optional** - the dashboard works without AWS configuration. To enable:
+
+1. **Set up AWS Bedrock credentials:**
+   - Follow the complete guide in `AWS_BEDROCK_SETUP.md`
+   - Choose between API Key method (recommended) or traditional AWS credentials
+   - Estimated cost: ~$2-3 per full run, or ~$8/month for weekly regeneration
+
+2. **Configure environment:**
+   ```bash
+   # Copy the example env file
+   copy .env.example .env
+
+   # Add your AWS Bedrock API Key to .env
+   AWS_BEARER_TOKEN_BEDROCK=your_actual_api_key_here
+   ```
+
+### Running LLM Scripts
+
+**Generate batch summaries (requires AWS setup):**
+```bash
+python llm_batch_summarizer.py
+```
+
+Output:
+- Generates Claude Opus 4.5 summaries for each question (Q1-Q14)
+- Creates overall strategic insights and recommendations
+- Saves results to `llm_summaries.json`
+- Processing time: ~2-5 minutes depending on dataset size
+- Cost: ~$2-3 per run
+
+**Validate LLM outputs:**
+```bash
+python llm_eval_validator.py
+```
+
+Output:
+- Detects hallucinations in generated summaries
+- Reports consistency scores (0.0-1.0)
+- Flags suspicious patterns or unsupported claims
+- Saves validation results to `validation_report.json`
+
+**View AI Insights in dashboard:**
+1. Run `streamlit run app.py`
+2. Navigate to "🤖 AI Insights" tab
+3. Click "🚀 Generate AI Summaries" (requires AWS configured)
+4. Review summaries alongside frequency data and sentiment analysis
+
+### Architecture
+
+**llm_batch_summarizer.py:**
+- Loads survey data and groups by question
+- Sends each question's responses to Claude Opus 4.5 via AWS Bedrock
+- Builds strategic recommendations from individual summaries
+- Implements retry logic and rate limiting
+- Saves structured JSON output with timestamps
+
+**llm_eval_validator.py:**
+- Compares LLM outputs against source data
+- Detects factual inconsistencies
+- Uses fuzzy string matching for semantic similarity
+- Flags patterns like:
+  - Numbers/statistics mentioned in summary not in source
+  - Contradictions with survey data
+  - Over-generalization from limited responses
+
+### Cost Management
+
+- **Budget tracking:** Set up AWS Budgets with email alerts (see AWS_BEDROCK_SETUP.md)
+- **Cost monitoring:** Check AWS Cost Explorer filtered by Bedrock service
+- **Optimization:**
+  - Generate summaries monthly instead of weekly
+  - Use Haiku model for less critical summaries (10x cheaper)
+  - Cache results to avoid regenerating unchanged data
+
+### Troubleshooting LLM Features
+
+**"AWS_BEARER_TOKEN_BEDROCK not found"**
+- Ensure `.env` file exists and contains the API key
+- Run: `echo $AWS_BEARER_TOKEN_BEDROCK` to verify environment variable is set
+- On Windows: Use `set AWS_BEARER_TOKEN_BEDROCK=...` if not using .env
+
+**"ValidationException: The provided model identifier is invalid"**
+- Model access not enabled in AWS Bedrock console
+- See AWS_BEDROCK_SETUP.md Step 1.2 for enabling model access
+- Try waiting 5 minutes for permissions to propagate
+
+**"ThrottlingException: Rate exceeded"**
+- AWS Bedrock has rate limits (~100 requests/min for Opus)
+- The batch summarizer includes delays between requests
+- Wait a few minutes and retry
+
+**LLM outputs seem hallucinated**
+- Run `llm_eval_validator.py` to detect inconsistencies
+- Review reasoning from sentiment analysis for ground truth
+- Lower-confidence sentiment classifications may signal unreliable source data
+
+### When to Use LLM Features
+
+- **Use:** Need strategic narrative alongside quantitative analysis
+- **Don't use:** Budget constraints or AWS setup complexity
+- **Combine with:** Always triangulate LLM insights with word clouds, sentiment scores, and direct quotes from responses
 
 ## Key Insights
 

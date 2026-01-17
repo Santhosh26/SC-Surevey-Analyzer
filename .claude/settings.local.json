@@ -4,9 +4,18 @@
       "Bash(dir /s /b \"C:\\Users\\skumar14\\my-repo\\SC-Surevey-Analyzer\")",
       "Bash(findstr:*)",
       "Bash(python generate_insights.py:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(powershell:*)",
+      "Bash(venvScriptsactivate)",
+      "Bash(pip install:*)",
+      "Bash(. venv/Scripts/activate)",
+      "Bash(pip show:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "linkedin"
+  ]
 }

@@ -56,6 +56,10 @@ output/
 INSIGHTS_REPORT_*.txt
 future_*.html
 
+# LLM-generated files
+llm_summaries.json
+chroma_db/
+
 # PyInstaller
 # *.spec - KEEP app.spec (custom configuration)
 
